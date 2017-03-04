@@ -213,7 +213,7 @@ def diff_to_string(change_type, diff):
         return "- {path}".format(path=diff.b_path)
     elif change_type == 'M':
         return "* {path}".format(path=diff.a_path)
-    elif change_type == 'M':
+    elif change_type == 'R':
         return "* {a_path} -> {b_path}".format(a_path=diff.a_path, b_path=diff.b_path)
 
 def save():
