@@ -342,7 +342,8 @@ def push():
     try:
         origin.push('master')
         say("Code is in master!")
-    except:
+    except Exception as e:
+        print(e)
         fatal("Can't push to origin. :-(")
 
 def about():
