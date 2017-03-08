@@ -2,3 +2,7 @@
 autosave
 cache
 movies
+*.pdn
+*.rib
+*.rlf
+renderman/
