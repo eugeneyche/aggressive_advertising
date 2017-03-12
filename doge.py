@@ -153,7 +153,7 @@ def lint_diff(change_type, diff):
         elif change_type == 'R':
             return lint['on_diff_rename'](diff.a_path, diff.b_path, diff.a_blob)
     except Exception as e:
-        return e
+        return 'Linter threw an error: {error}'.format(error=str(e))
 
 
 @capture_exception
@@ -184,9 +184,12 @@ def get_diffs(repo, include_unstaged=False):
         diff_list = repo.head.commit.diff(staged=True)
     else:
         diff_list = repo.index.diff(EMPTY_TREE, R=True)
-    for change_type in 'ADMR':
+    seen_diffs = set()
+    for change_type in 'ADRM':
         for diff in diff_list.iter_change_type(change_type):
-            yield change_type, diff
+            if diff not in seen_diffs:
+                seen_diffs.add(diff)
+                yield change_type, diff
 
 def diff_to_string(change_type, diff):
     if change_type == 'A':
@@ -197,6 +200,7 @@ def diff_to_string(change_type, diff):
         return "* {path}".format(path=diff.a_path)
     elif change_type == 'R':
         return "* {a_path} -> {b_path}".format(a_path=diff.a_path, b_path=diff.b_path)
+    return "?"
 
 def save():
     repo = expect_or_fatal(get_repo())
@@ -343,7 +347,6 @@ def push():
         origin.push('master')
         say("Code is in master!")
     except Exception as e:
-        print(e)
         fatal("Can't push to origin. :-(")
 
 def about():

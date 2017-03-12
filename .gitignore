@@ -1,3 +1,4 @@
+.*
 .*.sw?
 autosave
 cache
@@ -6,3 +7,4 @@ movies
 *.rib
 *.rlf
 renderman/
+.mayaSwatches
