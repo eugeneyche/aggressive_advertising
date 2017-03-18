@@ -41,7 +41,6 @@ def is_maya_ascii(path_list):
     return len(path_list) > 0 and os.path.splitext(path_list[-1])[1] == '.ma'
 
 def on_diff_add(path, blob):
-    print(path)
     path_list = path_as_list(path)
     base_path, ext = os.path.splitext(path)
     if ext == '.mb':
