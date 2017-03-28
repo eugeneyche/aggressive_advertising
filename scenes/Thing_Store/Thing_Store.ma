@@ -1,6 +1,6 @@
 //Maya ASCII 2017 scene
 //Name: Thing_Store.ma
-//Last modified: Mon, Mar 27, 2017 10:45:32 PM
+//Last modified: Mon, Mar 27, 2017 10:46:54 PM
 //Codeset: 1252
 requires maya "2017";
 requires -nodeType "RenderMan" -nodeType "PxrDebugShadingContext" -nodeType "PxrCamera"
@@ -19,8 +19,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "D52876C0-4672-6096-5C4E-C5AF2836BE74";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -34.123299117742945 26.290836355809567 92.562532197511217 ;
-	setAttr ".r" -type "double3" 704.86172533210674 -2541.0005460648731 -0.00022725653727335019 ;
+	setAttr ".t" -type "double3" -9.3448699619767872 7.9915181463746201 100.70277059832053 ;
+	setAttr ".r" -type "double3" 717.4616550095451 -2523.0005460649618 -0.00021245275166156881 ;
 	setAttr ".rp" -type "double3" -5.6843418860808015e-014 0 2.8421709430404007e-014 ;
 	setAttr ".rpt" -type "double3" -4.3988130496004637e-015 5.9763187997564481e-015 
 		-4.4316377686363409e-014 ;
