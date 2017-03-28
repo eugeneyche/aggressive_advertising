@@ -1,9 +1,9 @@
 //Maya ASCII 2017 scene
 //Name: Stuff_Store_Ref.ma
-//Last modified: Mon, Mar 27, 2017 10:36:54 PM
+//Last modified: Mon, Mar 27, 2017 10:44:22 PM
 //Codeset: 1252
 requires maya "2017";
-requires -nodeType "PxrLMGlass" "RenderMan_for_Maya" "21.3";
+requires -nodeType "PxrLMGlass" -nodeType "PxrConstant" "RenderMan_for_Maya" "21.3";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -22,6 +22,9 @@ createNode transform -n "Roof" -p "StuffStore";
 createNode mesh -n "RoofShape" -p "Roof";
 	rename -uid "1DBF9D2E-4E30-E6F5-E9F9-B9870316AF07";
 	setAttr -k off ".v";
+	setAttr -s 2 ".iog[0].og";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 5 "f[0:1369]" "f[1406:1441]" "f[1478:1674]" "f[1711:2178]" "f[2215:2286]";
+	setAttr ".iog[0].og[1].gcl" -type "componentList" 5 "f[1370:1405]" "f[1442:1477]" "f[1675:1710]" "f[2179:2214]" "f[2287:2358]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.1111111156642437 0.027069814503192902 ;
@@ -16688,6 +16691,9 @@ createNode transform -n "Stuff_Counter_Ref:CounterBase" -p "StuffCounter";
 createNode mesh -n "Stuff_Counter_Ref:CounterBaseShape" -p "Stuff_Counter_Ref:CounterBase";
 	rename -uid "864FDE19-4D8F-52F7-B5D9-8D8BBD6608F4";
 	setAttr -k off ".v";
+	setAttr -s 2 ".iog[0].og";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 7 "f[0:143]" "f[180:215]" "f[288:552]" "f[556:567]" "f[571:771]" "f[775:787]" "f[791:1911]";
+	setAttr ".iog[0].og[1].gcl" -type "componentList" 6 "f[144:179]" "f[216:287]" "f[553:555]" "f[568:570]" "f[772:774]" "f[788:790]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.37930967751890421 0.85961833596229553 ;
@@ -72791,6 +72797,25 @@ createNode displayLayerManager -n "layerManager";
 	setAttr ".cdl" 3;
 	setAttr -s 4 ".dli[1:3]"  1 2 3;
 	setAttr -s 4 ".dli";
+createNode groupId -n "groupId1";
+	rename -uid "52C09ED1-4B40-FE73-BA90-60A9FC6B1CCA";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId3";
+	rename -uid "22508556-4AF4-B337-3DF8-DABFE60C1A96";
+	setAttr ".ihi" 0;
+createNode shadingEngine -n "TempEmissiveShader";
+	rename -uid "B9656881-4167-CCC2-AB3B-E190192E3BA5";
+	setAttr ".ihi" 0;
+	setAttr -s 2 ".dsm";
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo2";
+	rename -uid "811930B6-436C-1E13-499A-1FB769D904DF";
+createNode PxrConstant -n "TempEmissive";
+	rename -uid "693099B7-40D3-0C85-E3C0-BA84A7F1C00D";
+	setAttr ".emitColor" -type "float3" 0.699 0.95369112 1 ;
+createNode groupId -n "groupId2";
+	rename -uid "C3497D39-4FF7-F2EE-1B7F-FCBC3CB1670F";
+	setAttr ".ihi" 0;
 createNode polyExtrudeEdge -n "polyExtrudeEdge1";
 	rename -uid "B017F466-4A10-3A45-2ECD-159658E98E09";
 	setAttr ".uopa" yes;
@@ -73170,6 +73195,15 @@ createNode shadingEngine -n "Stuff_Main_Doors_Ref:TempGlassShader";
 createNode PxrLMGlass -n "Stuff_Main_Doors_Ref:TempGlass";
 	rename -uid "AD3E61F1-4F5B-2F26-8C0C-9EB216F7470B";
 	setAttr ".thin" yes;
+createNode groupId -n "groupId4";
+	rename -uid "3138CF16-409C-0CA5-52DA-5C8232DB42A1";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId6";
+	rename -uid "715A2B90-479B-D0FB-3312-C1915FC8710F";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId5";
+	rename -uid "DF54B730-4050-EC28-9ED9-1BA605240ABB";
+	setAttr ".ihi" 0;
 createNode animCurveTL -n "pCubeShape1_pnts_1__pntx";
 	rename -uid "B278249B-47A8-EE97-FADA-5BA750F46DB9";
 	setAttr ".tan" 18;
@@ -73230,8 +73264,8 @@ createNode PxrLMGlass -n "Main_Doors_Ref:DoorGlass";
 	setAttr ".thin" yes;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "4D9D9679-4085-1471-11BF-08ABD234A149";
-	setAttr -s 5 ".lnk";
-	setAttr -s 5 ".slnk";
+	setAttr -s 7 ".lnk";
+	setAttr -s 7 ".slnk";
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -73242,16 +73276,17 @@ select -ne :hardwareRenderingGlobals;
 		 0 0 0 0 ;
 	setAttr ".fprt" yes;
 select -ne :renderPartition;
-	setAttr -s 5 ".st";
+	setAttr -s 6 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 7 ".s";
+	setAttr -s 8 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
 select -ne :initialShadingGroup;
-	setAttr -s 40 ".dsm";
+	setAttr -s 42 ".dsm";
 	setAttr ".ro" yes;
+	setAttr -s 4 ".gn";
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
 select -ne :defaultRenderGlobals;
@@ -73262,6 +73297,11 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 connectAttr "Clutter.di" "Roof.do";
+connectAttr "groupId1.id" "RoofShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "RoofShape.iog.og[0].gco";
+connectAttr "groupId3.id" "RoofShape.iog.og[1].gid";
+connectAttr "TempEmissiveShader.mwc" "RoofShape.iog.og[1].gco";
+connectAttr "groupId2.id" "RoofShape.ciog.cog[0].cgid";
 connectAttr "Clutter.di" "MainBody.do";
 connectAttr "Clutter.di" "FloorStairs.do";
 connectAttr "polyExtrudeEdge1.out" "FloorStairsShape.i";
@@ -73322,6 +73362,13 @@ connectAttr "Relevant.di" "Stuff_Main_Doors_Ref:Hinge6.do";
 connectAttr "Relevant.di" "Stuff_Main_Doors_Ref:Hinge5.do";
 connectAttr "Relevant.di" "Stuff_Main_Doors_Ref:Hinge4.do";
 connectAttr "Relevant.di" "Stuff_Counter_Ref:CounterBase.do";
+connectAttr "groupId4.id" "Stuff_Counter_Ref:CounterBaseShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "Stuff_Counter_Ref:CounterBaseShape.iog.og[0].gco"
+		;
+connectAttr "groupId6.id" "Stuff_Counter_Ref:CounterBaseShape.iog.og[1].gid";
+connectAttr "TempEmissiveShader.mwc" "Stuff_Counter_Ref:CounterBaseShape.iog.og[1].gco"
+		;
+connectAttr "groupId5.id" "Stuff_Counter_Ref:CounterBaseShape.ciog.cog[0].cgid";
 connectAttr "Relevant.di" "Stuff_Counter_Ref:CounterTop.do";
 connectAttr "Clutter.di" "FrontBrushes.do";
 connectAttr "pCubeShape1_pnts_1__pntx.o" "Brush1Shape.pt[1].px";
@@ -73339,6 +73386,14 @@ connectAttr "pCubeShape1_pnts_7__pntz.o" "Brush1Shape.pt[7].pz";
 connectAttr "Clutter.di" "Shelves.do";
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
 connectAttr "layerManager.dli[2]" "Clutter.id";
+connectAttr "TempEmissive.oc" "TempEmissiveShader.ss";
+connectAttr "RoofShape.iog.og[1]" "TempEmissiveShader.dsm" -na;
+connectAttr "Stuff_Counter_Ref:CounterBaseShape.iog.og[1]" "TempEmissiveShader.dsm"
+		 -na;
+connectAttr "groupId6.msg" "TempEmissiveShader.gn" -na;
+connectAttr "TempEmissiveShader.msg" "materialInfo2.sg";
+connectAttr "TempEmissive.msg" "materialInfo2.m";
+connectAttr "TempEmissive.msg" "materialInfo2.t" -na;
 connectAttr "polySurfaceShape1.o" "polyExtrudeEdge1.ip";
 connectAttr "FloorStairsShape.wm" "polyExtrudeEdge1.mp";
 connectAttr "layerManager.dli[3]" "Relevant.id";
@@ -73491,19 +73546,23 @@ relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightS
 relationship "link" ":lightLinker1" "Main_Doors_Ref:DoorGlassShader.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "Stuff_Curve_Window_Frame_Ref:TempGlassShader.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "Stuff_Main_Doors_Ref:TempGlassShader.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "TempEmissiveShader.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "Main_Doors_Ref:DoorGlassShader.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "Stuff_Curve_Window_Frame_Ref:TempGlassShader.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "Stuff_Main_Doors_Ref:TempGlassShader.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "TempEmissiveShader.message" ":defaultLightSet.message";
 connectAttr "Main_Doors_Ref:DoorGlassShader.pa" ":renderPartition.st" -na;
 connectAttr "Stuff_Curve_Window_Frame_Ref:TempGlassShader.pa" ":renderPartition.st"
 		 -na;
 connectAttr "Stuff_Main_Doors_Ref:TempGlassShader.pa" ":renderPartition.st" -na;
+connectAttr "TempEmissiveShader.pa" ":renderPartition.st" -na;
 connectAttr "Main_Doors_Ref:DoorGlass.msg" ":defaultShaderList1.s" -na;
 connectAttr "Stuff_Curve_Window_Frame_Ref:TempGlass.msg" ":defaultShaderList1.s"
 		 -na;
 connectAttr "Stuff_Main_Doors_Ref:TempGlass.msg" ":defaultShaderList1.s" -na;
+connectAttr "TempEmissive.msg" ":defaultShaderList1.s" -na;
 connectAttr "MainBodyShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "FloorShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Brush1Shape.iog" ":initialShadingGroup.dsm" -na;
@@ -73517,9 +73576,6 @@ connectAttr "Brush8Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Brush9Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Brush10Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "FloorStairsShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "RoofShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "Stuff_Counter_Ref:CounterBaseShape.iog" ":initialShadingGroup.dsm" 
-		-na;
 connectAttr "Stuff_Counter_Ref:CounterTopShape.iog" ":initialShadingGroup.dsm" -na
 		;
 connectAttr "StuffShelf0Shape.iog" ":initialShadingGroup.dsm" -na;
@@ -73564,4 +73620,14 @@ connectAttr "Stuff_Main_Doors_Ref:HingeShape6.iog" ":initialShadingGroup.dsm" -n
 		;
 connectAttr "Stuff_Main_Doors_Ref:DoorShape2.iog" ":initialShadingGroup.dsm" -na
 		;
+connectAttr "RoofShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofShape.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "Stuff_Counter_Ref:CounterBaseShape.iog.og[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "Stuff_Counter_Ref:CounterBaseShape.ciog.cog[0]" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "groupId1.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId4.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId5.msg" ":initialShadingGroup.gn" -na;
 // End of Stuff_Store_Ref.ma
