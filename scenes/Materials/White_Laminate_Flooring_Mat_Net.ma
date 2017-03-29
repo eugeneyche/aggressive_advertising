@@ -1,0 +1,94 @@
+//Maya ASCII 2017ff04 scene
+//Name: White_Laminate_Flooring_Mat_Net.ma
+//Last modified: Wed, Mar 29, 2017 04:47:27 PM
+//Codeset: 1252
+requires maya "2017ff04";
+requires -nodeType "PxrBump" -nodeType "PxrFractal" -nodeType "PxrLMLayer" -nodeType "PxrLMPlastic"
+		 "RenderMan_for_Maya" "21.3";
+requires "stereoCamera" "10.0";
+currentUnit -l centimeter -a degree -t film;
+fileInfo "application" "maya";
+fileInfo "product" "Maya 2017";
+fileInfo "version" "2017";
+fileInfo "cutIdentifier" "201702071345-1015190";
+fileInfo "osv" "Microsoft Windows 8 Home Premium Edition, 64-bit  (Build 9200)\n";
+fileInfo "license" "student";
+createNode PxrLMPlastic -n "Laminate_Floor_Mat";
+	rename -uid "1FABACD0-438D-DFD6-8298-6AB94D885906";
+	setAttr ".diffuseColor" -type "float3" 0.815 0.815 0.815 ;
+	setAttr ".specularColor" -type "float3" 1.8899999 1.8899999 1.8899999 ;
+	setAttr ".specularRoughness" 0.18999999761581421;
+	setAttr ".specularEta" -type "float3" 1.464 1.464 1.464 ;
+	setAttr ".clearcoatColor" -type "float3" 0.1 0.1 0.1 ;
+	setAttr ".clearcoatRoughness" 0.024000000208616257;
+createNode PxrBump -n "PxrBump1";
+	rename -uid "6D47F971-4BA7-96CB-59F2-EAA4719BCED2";
+createNode PxrFractal -n "PxrFractal1";
+	rename -uid "F1C8C846-45C4-5F11-BE84-85A39746ABA4";
+	setAttr ".frequency" 10;
+	setAttr ".lacunarity" 3.4129214286804199;
+createNode contrast -n "contrast1";
+	rename -uid "37101411-4EEE-1A6E-8241-29A1848335CE";
+	setAttr ".b" -type "float3" 0 0.5 0.5 ;
+createNode PxrLMLayer -n "PxrLMLayer1";
+	rename -uid "CAC85E36-47F5-3DAC-C6DC-00B4D7D1F552";
+	setAttr ".diffuseBehavior" no;
+	setAttr ".clearcoatBehavior" yes;
+	setAttr ".clearcoatEta" 1.4700000286102295;
+	setAttr ".clearcoatRoughness" 0.20000000298023224;
+	setAttr ".clearcoatThickness" 1;
+createNode partition -n "mtorPartition";
+	rename -uid "8DEF4B39-4115-476C-B982-57BF5F23B520";
+	addAttr -s false -ci true -sn "rgcnx" -ln "rgcnx" -at "message";
+	addAttr -ci true -sn "sd" -ln "slimData" -dt "string";
+	addAttr -ci true -sn "sr" -ln "slimRIB" -dt "string";
+	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
+	setAttr ".sr" -type "string" "";
+	setAttr ".rd" -type "string" "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<RenderManLookFile Version=\"1\" Format=\"RenderMan Look Data\" AssemblyName=\"\"/>\n";
+select -ne :time1;
+	setAttr ".o" 1;
+	setAttr ".unw" 1;
+select -ne :hardwareRenderingGlobals;
+	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
+	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
+		 1 1 1 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 ;
+	setAttr ".fprt" yes;
+select -ne :renderPartition;
+	setAttr -s 3 ".st";
+select -ne :renderGlobalsList1;
+select -ne :defaultShaderList1;
+	setAttr -s 5 ".s";
+select -ne :postProcessList1;
+	setAttr -s 2 ".p";
+select -ne :defaultRenderUtilityList1;
+select -ne :defaultRenderingList1;
+	setAttr -s 2 ".r";
+select -ne :lightList1;
+	setAttr -s 4 ".l";
+select -ne :defaultTextureList1;
+	setAttr -s 3 ".tx";
+select -ne :initialShadingGroup;
+	setAttr ".ro" yes;
+select -ne :initialParticleSE;
+	setAttr ".ro" yes;
+select -ne :defaultRenderGlobals;
+	setAttr ".ren" -type "string" "renderManRIS";
+select -ne :defaultResolution;
+	setAttr ".pa" 1;
+select -ne :defaultLightSet;
+	setAttr -s 4 ".dsm";
+select -ne :hardwareRenderGlobals;
+	setAttr ".ctrs" 256;
+	setAttr ".btrs" 512;
+connectAttr "PxrLMLayer1.result" "Laminate_Floor_Mat.lmlayer";
+connectAttr "PxrBump1.resultN" "Laminate_Floor_Mat.diffuseNn";
+connectAttr "contrast1.ox" "PxrBump1.inputBump";
+connectAttr "PxrFractal1.resultF" "contrast1.vx";
+connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
+connectAttr "Laminate_Floor_Mat.msg" ":defaultShaderList1.s" -na;
+connectAttr "contrast1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "PxrLMLayer1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "PxrFractal1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "PxrBump1.msg" ":defaultTextureList1.tx" -na;
+// End of White_Laminate_Flooring_Mat_Net.ma
