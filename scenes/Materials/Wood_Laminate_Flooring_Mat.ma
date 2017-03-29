@@ -1,6 +1,6 @@
 //Maya ASCII 2017ff04 scene
 //Name: Wood_Laminate_Flooring_Mat.ma
-//Last modified: Tue, Mar 28, 2017 04:02:22 PM
+//Last modified: Tue, Mar 28, 2017 08:43:35 PM
 //Codeset: 1252
 requires maya "2017ff04";
 requires -nodeType "RenderMan" -nodeType "PxrBump" -nodeType "PxrDebugShadingContext"
@@ -20,13 +20,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "6CA8E81A-488E-C00E-5FED-D0A0E44E255C";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -4.5366143200979856 4.1378917427099804 -6.1085563640506075 ;
-	setAttr ".r" -type "double3" -28.538352729600316 -143.39999999999822 0 ;
+	setAttr ".t" -type "double3" 5.3479279633884786 3.3152130370961927 -4.714832723144637 ;
+	setAttr ".r" -type "double3" -24.938352729585731 -228.5999999999857 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "0B3B1FD7-4052-9BAE-DC23-26A342BB9FF2";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 8.6612630959051025;
+	setAttr ".coi" 7.8626088921019477;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
