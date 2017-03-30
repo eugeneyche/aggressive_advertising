@@ -1,6 +1,6 @@
 //Maya ASCII 2017ff04 scene
 //Name: Painted_Brick_Mat.ma
-//Last modified: Thu, Mar 30, 2017 12:54:54 AM
+//Last modified: Thu, Mar 30, 2017 01:16:00 AM
 //Codeset: 1252
 requires maya "2017ff04";
 requires -nodeType "RenderMan" -nodeType "PxrBump" -nodeType "PxrDebugShadingContext"
@@ -95,7 +95,8 @@ createNode mesh -n "pSphereShape1" -p "pSphere1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr ".dr" 1;
+	setAttr ".dr" 3;
+	setAttr ".dsm" 2;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode transform -n "defaultLight";
 	rename -uid "58F60010-4C9D-4741-6C5D-198A6680FA27";
@@ -138,10 +139,10 @@ createNode renderLayer -n "defaultRenderLayer";
 	setAttr ".g" yes;
 createNode PxrLMDiffuse -n "Painted_Brick_Mat";
 	rename -uid "2052F8B3-4B24-0C57-3B8A-FAB6E923B814";
-	setAttr ".bumpNormal" -type "float3" 1 1 1 ;
 createNode PxrClamp -n "PxrClamp1";
 	rename -uid "44BA5763-441F-17AE-4E10-A2AA653D9E2D";
-	setAttr ".max" -type "float3" 0.37078652 0.37078652 0.37078652 ;
+	setAttr ".min" -type "float3" 0.19101124 0.19101124 0.19101124 ;
+	setAttr ".max" -type "float3" 0.44943821 0.44943821 0.44943821 ;
 createNode PxrFractal -n "PxrFractal1";
 	rename -uid "75F01B13-4AF3-6402-1EED-0693B41DF0E5";
 	setAttr ".frequency" 80;
@@ -154,9 +155,10 @@ createNode PxrBlend -n "PxrBlend1";
 	setAttr ".operation" 9;
 createNode grid -n "grid1";
 	rename -uid "7A998BB8-41DF-E6A2-4C21-76B81E2D56FA";
-	setAttr ".c" 0.8193548321723938;
-	setAttr ".uw" 0.0099999997764825821;
-	setAttr ".vw" 0.0099999997764825821;
+	setAttr ".fo" 0.02500000037252903;
+	setAttr ".c" 0.96503496170043945;
+	setAttr ".uw" 0.019999999552965164;
+	setAttr ".vw" 0.019999999552965164;
 createNode place2dTexture -n "place2dTexture2";
 	rename -uid "D91DF1E1-4ECB-C398-011C-72BFDDD5F91C";
 	setAttr ".s" yes;
@@ -1115,12 +1117,13 @@ createNode RenderMan -s -n "rmanBakeGlobals";
 createNode shadingEngine -n "PxrLMDiffuse1SG";
 	rename -uid "1BA4E55D-48CB-914D-5BD0-A39A3D4B25CF";
 	setAttr ".ihi" 0;
+	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "E1F4B681-48C9-7FEF-7FC7-6491AEE97D7F";
 createNode PxrDisplace -n "PxrDisplace1";
 	rename -uid "09C9E670-4629-FA0A-3DE0-83B29635B805";
-	setAttr ".dispScalar" 0.019999999552965164;
+	setAttr ".dispScalar" 0.035000000149011612;
 createNode PxrLMLayer -n "PxrLMLayer1";
 	rename -uid "2CF41D97-4E82-BD4B-07A3-DDAB0B4E5D22";
 	setAttr ".diffuseColor" -type "float3" 1 0.44953537 0.07799983 ;
@@ -1144,59 +1147,56 @@ createNode PxrBlend -n "PxrBlend2";
 	rename -uid "A9418F55-40B5-B483-C621-B1891606F294";
 	setAttr ".topA" 0.10000000149011612;
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "39CF30F5-41A3-DD1F-CD11-F7AF0C776B85";
+	rename -uid "C4DC836C-46B8-5099-1B8C-C78A2A114D43";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" 371.23738531786836 120.99061041645696 ;
-	setAttr ".tgi[0].vh" -type "double2" 1660.5230483719738 732.69548704796671 ;
-	setAttr -s 16 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" 1601.4285888671875;
-	setAttr ".tgi[0].ni[0].y" 561.4285888671875;
+	setAttr ".tgi[0].vl" -type "double2" 1830.09285458613 -767.22737471174901 ;
+	setAttr ".tgi[0].vh" -type "double2" 3651.2519580644362 96.82621452978303 ;
+	setAttr -s 15 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" 3064.28564453125;
+	setAttr ".tgi[0].ni[0].y" -177.14285278320312;
 	setAttr ".tgi[0].ni[0].nvs" 1922;
-	setAttr ".tgi[0].ni[1].x" 565.0880126953125;
-	setAttr ".tgi[0].ni[1].y" 683.12176513671875;
-	setAttr ".tgi[0].ni[1].nvs" 1923;
-	setAttr ".tgi[0].ni[2].x" 1321.3194580078125;
-	setAttr ".tgi[0].ni[2].y" 211.83851623535156;
+	setAttr ".tgi[0].ni[1].x" 2450;
+	setAttr ".tgi[0].ni[1].y" 148.57142639160156;
+	setAttr ".tgi[0].ni[1].nvs" 18306;
+	setAttr ".tgi[0].ni[2].x" 2142.857177734375;
+	setAttr ".tgi[0].ni[2].y" 117.14286041259766;
 	setAttr ".tgi[0].ni[2].nvs" 18306;
-	setAttr ".tgi[0].ni[3].x" 1985.7142333984375;
-	setAttr ".tgi[0].ni[3].y" 485.71429443359375;
-	setAttr ".tgi[0].ni[3].nvs" 18306;
-	setAttr ".tgi[0].ni[4].x" 1875.041748046875;
-	setAttr ".tgi[0].ni[4].y" 642.1063232421875;
-	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" 788.78369140625;
-	setAttr ".tgi[0].ni[5].y" 658.8372802734375;
+	setAttr ".tgi[0].ni[3].x" 1221.4285888671875;
+	setAttr ".tgi[0].ni[3].y" -154.28572082519531;
+	setAttr ".tgi[0].ni[3].nvs" 1923;
+	setAttr ".tgi[0].ni[4].x" 3064.28564453125;
+	setAttr ".tgi[0].ni[4].y" 225.71427917480469;
+	setAttr ".tgi[0].ni[4].nvs" 18306;
+	setAttr ".tgi[0].ni[5].x" 1528.5714111328125;
+	setAttr ".tgi[0].ni[5].y" -114.28571319580078;
 	setAttr ".tgi[0].ni[5].nvs" 1923;
-	setAttr ".tgi[0].ni[6].x" 1515.731689453125;
-	setAttr ".tgi[0].ni[6].y" 554.40399169921875;
-	setAttr ".tgi[0].ni[6].nvs" 18306;
-	setAttr ".tgi[0].ni[7].x" 1027.109619140625;
-	setAttr ".tgi[0].ni[7].y" 663.31195068359375;
-	setAttr ".tgi[0].ni[7].nvs" 18306;
-	setAttr ".tgi[0].ni[8].x" 1841.2694091796875;
-	setAttr ".tgi[0].ni[8].y" -8.3423271179199219;
-	setAttr ".tgi[0].ni[8].nvs" 1922;
-	setAttr ".tgi[0].ni[9].x" 1297.12451171875;
-	setAttr ".tgi[0].ni[9].y" 598.8021240234375;
+	setAttr ".tgi[0].ni[6].x" 2757.142822265625;
+	setAttr ".tgi[0].ni[6].y" 452.85714721679687;
+	setAttr ".tgi[0].ni[6].nvs" 1923;
+	setAttr ".tgi[0].ni[7].x" 3371.428466796875;
+	setAttr ".tgi[0].ni[7].y" 1.4285714626312256;
+	setAttr ".tgi[0].ni[7].nvs" 1923;
+	setAttr ".tgi[0].ni[8].x" 1221.4285888671875;
+	setAttr ".tgi[0].ni[8].y" -374.28570556640625;
+	setAttr ".tgi[0].ni[8].nvs" 1923;
+	setAttr ".tgi[0].ni[9].x" 1835.7142333984375;
+	setAttr ".tgi[0].ni[9].y" -177.14285278320312;
 	setAttr ".tgi[0].ni[9].nvs" 18306;
-	setAttr ".tgi[0].ni[10].x" 611.61639404296875;
-	setAttr ".tgi[0].ni[10].y" 57.054008483886719;
+	setAttr ".tgi[0].ni[10].x" 2371.756591796875;
+	setAttr ".tgi[0].ni[10].y" -284.58364868164062;
 	setAttr ".tgi[0].ni[10].nvs" 1923;
-	setAttr ".tgi[0].ni[11].x" 2292.857177734375;
-	setAttr ".tgi[0].ni[11].y" 211.42857360839844;
-	setAttr ".tgi[0].ni[11].nvs" 1923;
-	setAttr ".tgi[0].ni[12].x" 142.85714721679687;
-	setAttr ".tgi[0].ni[12].y" 360;
+	setAttr ".tgi[0].ni[11].x" 1835.7142333984375;
+	setAttr ".tgi[0].ni[11].y" 180;
+	setAttr ".tgi[0].ni[11].nvs" 18306;
+	setAttr ".tgi[0].ni[12].x" 1221.4285888671875;
+	setAttr ".tgi[0].ni[12].y" 65.714286804199219;
 	setAttr ".tgi[0].ni[12].nvs" 1923;
-	setAttr ".tgi[0].ni[13].x" 1029.4752197265625;
-	setAttr ".tgi[0].ni[13].y" 241.38650512695312;
+	setAttr ".tgi[0].ni[13].x" 1528.5714111328125;
+	setAttr ".tgi[0].ni[13].y" 198.57142639160156;
 	setAttr ".tgi[0].ni[13].nvs" 18306;
-	setAttr ".tgi[0].ni[14].x" 450;
-	setAttr ".tgi[0].ni[14].y" 381.42855834960937;
+	setAttr ".tgi[0].ni[14].x" 1530.451416015625;
+	setAttr ".tgi[0].ni[14].y" -337.59420776367187;
 	setAttr ".tgi[0].ni[14].nvs" 1923;
-	setAttr ".tgi[0].ni[15].x" 796.6883544921875;
-	setAttr ".tgi[0].ni[15].y" 311.21902465820312;
-	setAttr ".tgi[0].ni[15].nvs" 18306;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -1239,6 +1239,7 @@ relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defau
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
+connectAttr "PxrBump1.resultN" "Painted_Brick_Mat.bumpNormal";
 connectAttr "PxrLMLayer1.result" "Painted_Brick_Mat.lmlayer";
 connectAttr "PxrInvert1.resultRGB" "PxrClamp1.inputRGB";
 connectAttr "PxrFractal1.resultRGB" "PxrClamp2.inputRGB";
@@ -1265,37 +1266,35 @@ connectAttr "PxrBump1.resultN" "PxrLMLayer1.clearcoatNn";
 connectAttr "PxrFractal2.resultRGB" "PxrClamp3.inputRGB";
 connectAttr "PxrInvert1.resultRGB" "PxrBlend2.topRGB";
 connectAttr "PxrBlend1.resultRGB" "PxrBlend2.bottomRGB";
-connectAttr "PxrDomeLightShape1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+connectAttr "PxrDisplace1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
 		;
-connectAttr "PxrFractal2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr "PxrBump1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
 		;
-connectAttr "PxrClamp1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+connectAttr "PxrBlend2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
 		;
-connectAttr "Painted_Brick_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+connectAttr "PxrFractal2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
 		;
-connectAttr "PxrLMLayer1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+connectAttr "Painted_Brick_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
 		;
 connectAttr "PxrClamp3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
 		;
-connectAttr "PxrBump1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+connectAttr "PxrLMLayer1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
 		;
-connectAttr "PxrBlend1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
+connectAttr "PxrLMDiffuse1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
 		;
-connectAttr "PxrDisplace1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
+connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
 		;
-connectAttr "PxrBlend2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
+connectAttr "PxrInvert1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
 		;
-connectAttr "PxrFractal1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
+connectAttr "PxrClamp1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
 		;
-connectAttr "PxrLMDiffuse1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
+connectAttr "PxrBlend1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
 		;
-connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
+connectAttr "PxrFractal1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
 		;
-connectAttr "PxrInvert1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
+connectAttr "PxrClamp2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
 		;
 connectAttr "grid1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[14].dn"
-		;
-connectAttr "PxrClamp2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[15].dn"
 		;
 connectAttr "Painted_Brick_Mat.msg" ":defaultShaderList1.s" -na;
 connectAttr "PxrDisplace1.msg" ":defaultShaderList1.s" -na;
@@ -1318,5 +1317,4 @@ connectAttr "PxrBlend2.msg" ":defaultTextureList1.tx" -na;
 connectAttr "defaultLight.iog" ":defaultLightSet.dsm" -na;
 connectAttr "PxrRectLight1.iog" ":defaultLightSet.dsm" -na;
 connectAttr "PxrDomeLight1.iog" ":defaultLightSet.dsm" -na;
-connectAttr "PxrBlend2.resultRGB" ":internal_soloShader.ic";
 // End of Painted_Brick_Mat.ma
