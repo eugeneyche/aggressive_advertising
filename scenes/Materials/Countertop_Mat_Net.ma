@@ -1,6 +1,6 @@
 //Maya ASCII 2017ff04 scene
 //Name: Countertop_Mat_Net.ma
-//Last modified: Wed, Mar 29, 2017 04:44:00 PM
+//Last modified: Thu, Mar 30, 2017 03:32:32 AM
 //Codeset: 1252
 requires maya "2017ff04";
 requires -nodeType "PxrLMPlastic" "RenderMan_for_Maya" "21.3";
@@ -21,11 +21,6 @@ createNode PxrLMPlastic -n "Countertop_Mat";
 	setAttr ".clearcoatColor" -type "float3" 0.68539327 0.68539327 0.68539327 ;
 	setAttr ".clearcoatThickness" 0.10000000149011612;
 	setAttr ".clearcoatTransmission" -type "float3" 1 0.71469998 0.58819997 ;
-createNode shadingEngine -n "PxrLMPlastic1SG";
-	rename -uid "4284E225-4996-6A0B-7E99-3BAD65AB4F29";
-	setAttr ".ihi" 0;
-	setAttr -s 2 ".dsm";
-	setAttr ".ro" yes;
 createNode partition -n "mtorPartition";
 	rename -uid "2AECC178-46C9-A81B-A467-AF82522A236A";
 	addAttr -s false -ci true -sn "rgcnx" -ln "rgcnx" -at "message";
@@ -34,12 +29,6 @@ createNode partition -n "mtorPartition";
 	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
 	setAttr ".sr" -type "string" "";
 	setAttr ".rd" -type "string" "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<RenderManLookFile Version=\"1\" Format=\"RenderMan Look Data\" AssemblyName=\"\"/>\n";
-createNode materialInfo -n "materialInfo1";
-	rename -uid "C6A53AAA-4F65-500A-F8DE-2B94A4AF1879";
-createNode lightLinker -s -n "lightLinker1";
-	rename -uid "14E78E8D-4AB5-22A1-65D3-F1AFB0746C52";
-	setAttr -s 3 ".lnk";
-	setAttr -s 3 ".slnk";
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -73,18 +62,6 @@ select -ne :defaultLightSet;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-connectAttr "Countertop_Mat.oc" "PxrLMPlastic1SG.ss";
-connectAttr "pCylinderShape1.iog" "PxrLMPlastic1SG.dsm" -na;
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
-connectAttr "PxrLMPlastic1SG.msg" "materialInfo1.sg";
-connectAttr "Countertop_Mat.msg" "materialInfo1.m";
-connectAttr "Countertop_Mat.msg" "materialInfo1.t" -na;
-relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
-relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
-relationship "link" ":lightLinker1" "PxrLMPlastic1SG.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" "PxrLMPlastic1SG.message" ":defaultLightSet.message";
-connectAttr "PxrLMPlastic1SG.pa" ":renderPartition.st" -na;
 connectAttr "Countertop_Mat.msg" ":defaultShaderList1.s" -na;
 // End of Countertop_Mat_Net.ma
