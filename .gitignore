@@ -8,3 +8,4 @@ movies
 *.rlf
 renderman/
 .*
+.mayaSwatches/
