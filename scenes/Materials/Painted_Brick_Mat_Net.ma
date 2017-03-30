@@ -1,11 +1,11 @@
 //Maya ASCII 2017ff04 scene
 //Name: Painted_Brick_Mat_Net.ma
-//Last modified: Thu, Mar 30, 2017 03:13:07 AM
+//Last modified: Thu, Mar 30, 2017 11:06:16 AM
 //Codeset: 1252
 requires maya "2017ff04";
 requires -nodeType "PxrBump" -nodeType "PxrRemap" -nodeType "PxrClamp" -nodeType "PxrInvert"
-		 -nodeType "PxrFractal" -nodeType "PxrLMLayer" -nodeType "PxrBlend" -nodeType "PxrLMDiffuse"
-		 -nodeType "PxrDisplace" -nodeType "PxrManifold2D" "RenderMan_for_Maya" "21.3";
+		 -nodeType "PxrFractal" -nodeType "PxrLMLayer" -nodeType "PxrManifold3D" -nodeType "PxrBlend"
+		 -nodeType "PxrLMDiffuse" -nodeType "PxrDisplace" "RenderMan_for_Maya" "21.3";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -49,10 +49,9 @@ createNode PxrFractal -n "PxrFractal2";
 	setAttr ".frequency" 10;
 	setAttr ".lacunarity" 2.5786516666412354;
 	setAttr ".dimension" 1.4382022619247437;
-createNode PxrManifold2D -n "PxrManifold2D2";
-	rename -uid "1372BD31-44C3-C1E0-CFF5-F6952F66D5A4";
-	setAttr ".offsetS" 6;
-	setAttr ".offsetT" 10;
+createNode PxrManifold3D -n "PxrManifold3D1";
+	rename -uid "EAE786D6-4334-D6A2-9021-0E85A720C18C";
+	setAttr ".scale" 0.082999996840953827;
 createNode PxrClamp -n "PxrClamp2";
 	rename -uid "F8B652B8-4170-3450-FFE3-AF8E48067896";
 	setAttr ".max" -type "float3" 0.089887641 0.089887641 0.089887641 ;
@@ -120,9 +119,9 @@ connectAttr "place2dTexture2.ofs" "grid1.fs";
 connectAttr "PxrClamp3.resultRGB" "PxrBlend1.bottomRGB";
 connectAttr "PxrClamp2.resultRGB" "PxrBlend1.topRGB";
 connectAttr "PxrFractal2.resultRGB" "PxrClamp3.inputRGB";
-connectAttr "PxrManifold2D2.result" "PxrFractal2.manifold";
+connectAttr "PxrManifold3D1.result" "PxrFractal2.manifold";
 connectAttr "PxrFractal1.resultRGB" "PxrClamp2.inputRGB";
-connectAttr "PxrManifold2D2.result" "PxrFractal1.manifold";
+connectAttr "PxrManifold3D1.result" "PxrFractal1.manifold";
 connectAttr "PxrBump1.resultN" "PxrLMLayer1.diffuseNn";
 connectAttr "PxrBump1.resultN" "PxrLMLayer1.specularNn";
 connectAttr "PxrBump1.resultN" "PxrLMLayer1.clearcoatNn";
@@ -141,5 +140,5 @@ connectAttr "PxrFractal2.msg" ":defaultTextureList1.tx" -na;
 connectAttr "PxrClamp3.msg" ":defaultTextureList1.tx" -na;
 connectAttr "PxrBlend2.msg" ":defaultTextureList1.tx" -na;
 connectAttr "PxrRemap2.msg" ":defaultTextureList1.tx" -na;
-connectAttr "PxrManifold2D2.msg" ":defaultTextureList1.tx" -na;
+connectAttr "PxrManifold3D1.msg" ":defaultTextureList1.tx" -na;
 // End of Painted_Brick_Mat_Net.ma
