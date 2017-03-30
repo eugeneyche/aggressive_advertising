@@ -1,6 +1,6 @@
 //Maya ASCII 2017ff04 scene
 //Name: Tiled_Flooring_Mat_Net.ma
-//Last modified: Thu, Mar 30, 2017 03:28:10 AM
+//Last modified: Thu, Mar 30, 2017 03:35:16 AM
 //Codeset: 1252
 requires maya "2017ff04";
 requires -nodeType "PxrBump" -nodeType "PxrInvert" -nodeType "PxrFractal" -nodeType "PxrLMLayer"
