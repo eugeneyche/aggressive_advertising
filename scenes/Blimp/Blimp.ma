@@ -1,6 +1,6 @@
 //Maya ASCII 2017 scene
 //Name: Blimp.ma
-//Last modified: Mon, Apr 10, 2017 05:55:19 AM
+//Last modified: Mon, Apr 10, 2017 05:56:58 AM
 //Codeset: UTF-8
 file -rdi 1 -ns "Light_Env" -dr 1 -rfn "Light_EnvRN" -op "v=0;" -typ "mayaAscii"
 		 "/Users/oslee/Documents/maya/projects/aggressive_advertising//scenes/Light_Env/Light_Env.ma";
@@ -25,8 +25,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "E13E0FBC-1E49-BCB6-1BC9-0FB0ED4706C0";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -13.522575050008648 -1.2066746833771713 9.1502930702217089 ;
-	setAttr ".r" -type "double3" 1095.2616473575436 -1505.4000000000983 -3.8202035027908252e-15 ;
+	setAttr ".t" -type "double3" 15.35246528700679 2.4580395196704323 4.3023413744062289 ;
+	setAttr ".r" -type "double3" 1081.4616473574918 -1715.0000000000359 1.1403991367820026e-15 ;
 	setAttr ".rp" -type "double3" 0 4.4408920985006262e-16 0 ;
 	setAttr ".rpt" -type "double3" -5.2927403919808451e-17 -3.7605425590402031e-18 2.2903732912305896e-17 ;
 createNode camera -s -n "perspShape" -p "persp";
