@@ -1,0 +1,225 @@
+//Maya ASCII 2017 scene
+//Name: Steel_Black_Net.ma
+//Last modified: Tue, Apr 18, 2017 12:53:01 AM
+//Codeset: 1252
+requires maya "2017";
+requires -nodeType "PxrBump" -nodeType "PxrLMMetal" -nodeType "PxrFlakes" -nodeType "PxrFractal"
+		 -nodeType "PxrLMLayer" -nodeType "PxrManifold3D" -nodeType "PxrBlend" "RenderMan_for_Maya" "21.3";
+requires "stereoCamera" "10.0";
+currentUnit -l centimeter -a degree -t film;
+fileInfo "application" "maya";
+fileInfo "product" "Maya 2017";
+fileInfo "version" "2017";
+fileInfo "cutIdentifier" "201606150345-997974";
+fileInfo "osv" "Microsoft Windows 8 Business Edition, 64-bit  (Build 9200)\n";
+fileInfo "license" "student";
+createNode PxrLMMetal -n "Steel_Black";
+	rename -uid "B8E514E1-41BF-9F96-65A4-29A8E8C9F013";
+	setAttr ".eta" -type "float3" 3.4171913 2.2809348 1.294011 ;
+createNode partition -n "mtorPartition";
+	rename -uid "357E1E0B-4BD9-CB4D-413A-4B8252A58011";
+	addAttr -s false -ci true -sn "rgcnx" -ln "rgcnx" -at "message";
+	addAttr -ci true -sn "sd" -ln "slimData" -dt "string";
+	addAttr -ci true -sn "sr" -ln "slimRIB" -dt "string";
+	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
+	setAttr ".sr" -type "string" "";
+createNode remapColor -n "Steel_Metal_Mat_Net:remapColor1";
+	rename -uid "37EBA39E-488D-160C-9A63-1DBBFF6DD49E";
+	setAttr -s 2 ".r[0:1]"  0.017391304 0.5 1 1 0.77999997 1;
+	setAttr -s 2 ".g[0:1]"  0 0.34 1 1 1 1;
+	setAttr -s 2 ".b[0:1]"  0 0 1 1 1 1;
+createNode contrast -n "Steel_Metal_Mat_Net:contrast1";
+	rename -uid "71040781-433D-3900-07E8-AF9840463594";
+	setAttr ".b" -type "float3" 0.80000001 0.5 0.5 ;
+createNode PxrFlakes -n "Steel_Metal_Mat_Net:PxrFlakes1";
+	rename -uid "9CEF88E9-4993-A049-5602-768B1A2619A2";
+	setAttr ".flakeFreq" 21.34831428527832;
+	setAttr ".density" 0.23595505952835083;
+	setAttr ".size" 0.35955056548118591;
+	setAttr ".octaves" 2;
+	setAttr ".jitter" 1;
+createNode PxrManifold3D -n "Steel_Metal_Mat_Net:PxrManifold3D1";
+	rename -uid "847E004F-4FD4-5EE5-70F6-CE98C7D83FC6";
+	setAttr ".scale" 2;
+createNode PxrBump -n "Steel_Metal_Mat_Net:PxrBump1";
+	rename -uid "E0BFFC01-43E2-7485-50C6-809D76D22BB1";
+	setAttr ".scale" 0.05000000074505806;
+createNode PxrBlend -n "Steel_Metal_Mat_Net:PxrBlend1";
+	rename -uid "95CC82DB-43BA-8F78-AD67-8DBCC43D7A85";
+	setAttr ".topA" 0.80000001192092896;
+createNode PxrFractal -n "Steel_Metal_Mat_Net:PxrFractal1";
+	rename -uid "B23A03D2-4629-8DB1-437A-47B60AD2BC5C";
+	setAttr ".frequency" 20;
+createNode PxrLMLayer -n "Steel_Metal_Mat_Net:PxrLMLayer1";
+	rename -uid "E3AE3DCF-4AD6-EAD3-CFD2-219BB425F203";
+	setAttr ".diffuseBehavior" no;
+	setAttr ".diffuseColor" -type "float3" 1 0 0 ;
+	setAttr ".specularBehavior" no;
+	setAttr ".specularRoughness" 0.5;
+	setAttr ".clearcoatBehavior" yes;
+	setAttr ".clearcoatRoughness" 0.30000001192092896;
+	setAttr ".clearcoatThickness" 2;
+	setAttr ".clearcoatTransmission" -type "float3" 0.089887641 0.089887641 0.089887641 ;
+createNode remapColor -n "Steel_Metal_Mat_Net:remapColor2";
+	rename -uid "1F64EDB2-4FA7-2291-CFFE-1D980575124E";
+	setAttr -s 2 ".r";
+	setAttr ".r[1].rp" 1;
+	setAttr ".r[1].rfv" 0.74000000953674316;
+	setAttr ".r[1].ri" 1;
+	setAttr ".r[3].rfv" 1;
+	setAttr ".r[3].ri" 1;
+	setAttr -s 2 ".g[0:1]"  0 0 1 1 1 1;
+	setAttr -s 2 ".b[0:1]"  0 0 1 1 1 1;
+select -ne :time1;
+	setAttr -av -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr ".o" 1;
+	setAttr ".unw" 1;
+select -ne :hardwareRenderingGlobals;
+	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
+	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
+		 1 1 1 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 ;
+	setAttr ".fprt" yes;
+select -ne :renderPartition;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -s 30 ".st";
+	setAttr -cb on ".an";
+	setAttr -cb on ".pt";
+select -ne :renderGlobalsList1;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+select -ne :defaultShaderList1;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -s 31 ".s";
+select -ne :postProcessList1;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -s 2 ".p";
+select -ne :defaultRenderUtilityList1;
+	setAttr -s 66 ".u";
+select -ne :defaultRenderingList1;
+	setAttr -s 9 ".r";
+select -ne :lightList1;
+	setAttr -s 15 ".l";
+select -ne :defaultTextureList1;
+	setAttr -s 162 ".tx";
+select -ne :lambert1;
+	setAttr ".c" -type "float3" 0.5 0.08950001 0.48420933 ;
+select -ne :initialShadingGroup;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -av -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -k on ".mwc";
+	setAttr -cb on ".an";
+	setAttr -cb on ".il";
+	setAttr -cb on ".vo";
+	setAttr -cb on ".eo";
+	setAttr -cb on ".fo";
+	setAttr -cb on ".epo";
+	setAttr ".ro" yes;
+select -ne :initialParticleSE;
+	setAttr -av -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -av -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -k on ".mwc";
+	setAttr -cb on ".an";
+	setAttr -cb on ".il";
+	setAttr -cb on ".vo";
+	setAttr -cb on ".eo";
+	setAttr -cb on ".fo";
+	setAttr -cb on ".epo";
+	setAttr ".ro" yes;
+select -ne :defaultRenderGlobals;
+	setAttr ".ren" -type "string" "renderManRIS";
+select -ne :defaultResolution;
+	setAttr ".w" 1280;
+	setAttr ".h" 720;
+	setAttr ".pa" 1;
+	setAttr ".dar" 1.7777777910232544;
+select -ne :defaultLightSet;
+	setAttr -s 15 ".dsm";
+select -ne :hardwareRenderGlobals;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr ".ctrs" 256;
+	setAttr -av ".btrs" 512;
+	setAttr -k off ".fbfm";
+	setAttr -k off -cb on ".ehql";
+	setAttr -k off -cb on ".eams";
+	setAttr -k off -cb on ".eeaa";
+	setAttr -k off -cb on ".engm";
+	setAttr -k off -cb on ".mes";
+	setAttr -k off -cb on ".emb";
+	setAttr -av -k off -cb on ".mbbf";
+	setAttr -k off -cb on ".mbs";
+	setAttr -k off -cb on ".trm";
+	setAttr -k off -cb on ".tshc";
+	setAttr -k off ".enpt";
+	setAttr -k off -cb on ".clmt";
+	setAttr -k off -cb on ".tcov";
+	setAttr -k off -cb on ".lith";
+	setAttr -k off -cb on ".sobc";
+	setAttr -k off -cb on ".cuth";
+	setAttr -k off -cb on ".hgcd";
+	setAttr -k off -cb on ".hgci";
+	setAttr -k off -cb on ".mgcs";
+	setAttr -k off -cb on ".twa";
+	setAttr -k off -cb on ".twz";
+	setAttr -k on ".hwcc";
+	setAttr -k on ".hwdp";
+	setAttr -k on ".hwql";
+	setAttr -k on ".hwfr";
+connectAttr "Steel_Metal_Mat_Net:remapColor1.ocr" "Steel_Black.roughness";
+connectAttr "Steel_Metal_Mat_Net:PxrBump1.resultN" "Steel_Black.bumpNormal";
+connectAttr "Steel_Metal_Mat_Net:PxrLMLayer1.result" "Steel_Black.lmlayer";
+connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
+connectAttr "Steel_Metal_Mat_Net:contrast1.o" "Steel_Metal_Mat_Net:remapColor1.cl"
+		;
+connectAttr "Steel_Metal_Mat_Net:PxrFlakes1.resultA" "Steel_Metal_Mat_Net:contrast1.vx"
+		;
+connectAttr "Steel_Metal_Mat_Net:PxrManifold3D1.result" "Steel_Metal_Mat_Net:PxrFlakes1.manifold"
+		;
+connectAttr "Steel_Metal_Mat_Net:PxrBlend1.resultR" "Steel_Metal_Mat_Net:PxrBump1.inputBump"
+		;
+connectAttr "Steel_Metal_Mat_Net:PxrFlakes1.resultA" "Steel_Metal_Mat_Net:PxrBlend1.topRGBr"
+		;
+connectAttr "Steel_Metal_Mat_Net:PxrFractal1.resultF" "Steel_Metal_Mat_Net:PxrBlend1.bottomRGBr"
+		;
+connectAttr "Steel_Metal_Mat_Net:PxrManifold3D1.result" "Steel_Metal_Mat_Net:PxrFractal1.manifold"
+		;
+connectAttr "Steel_Metal_Mat_Net:remapColor2.ocr" "Steel_Metal_Mat_Net:PxrLMLayer1.layerMask"
+		;
+connectAttr "Steel_Metal_Mat_Net:PxrFlakes1.resultA" "Steel_Metal_Mat_Net:remapColor2.cr"
+		;
+connectAttr "Steel_Black.msg" ":defaultShaderList1.s" -na;
+connectAttr "Steel_Metal_Mat_Net:contrast1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "Steel_Metal_Mat_Net:remapColor1.msg" ":defaultRenderUtilityList1.u"
+		 -na;
+connectAttr "Steel_Metal_Mat_Net:remapColor2.msg" ":defaultRenderUtilityList1.u"
+		 -na;
+connectAttr "Steel_Metal_Mat_Net:PxrFlakes1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Steel_Metal_Mat_Net:PxrBump1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Steel_Metal_Mat_Net:PxrLMLayer1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Steel_Metal_Mat_Net:PxrFractal1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Steel_Metal_Mat_Net:PxrBlend1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Steel_Metal_Mat_Net:PxrManifold3D1.msg" ":defaultTextureList1.tx" -na
+		;
+// End of Steel_Black_Net.ma
