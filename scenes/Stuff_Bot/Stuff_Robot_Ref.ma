@@ -1,6 +1,6 @@
 //Maya ASCII 2017ff04 scene
 //Name: Stuff_Robot_Ref.ma
-//Last modified: Sun, Apr 23, 2017 10:24:45 PM
+//Last modified: Mon, Apr 24, 2017 12:50:52 PM
 //Codeset: 1252
 requires maya "2017ff04";
 requires -nodeType "PxrDisney" "RenderMan_for_Maya" "21.3";
@@ -160,6 +160,7 @@ createNode transform -n "Hand_L_Ctrl" -p "COG_Ctrl";
 	addAttr -ci true -sn "Finger_1_Roll" -ln "Finger_1_Roll" -at "double";
 	addAttr -ci true -sn "Finger_2_Roll" -ln "Finger_2_Roll" -at "double";
 	addAttr -ci true -sn "Finger_3_Roll" -ln "Finger_3_Roll" -at "double";
+	setAttr ".ro" 5;
 	setAttr -k off ".sx";
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
@@ -217,6 +218,7 @@ createNode transform -n "Hand_R_Ctrl" -p "COG_Ctrl";
 	addAttr -ci true -sn "Finger_1_Roll" -ln "Finger_1_Roll" -at "double";
 	addAttr -ci true -sn "Finger_2_Roll" -ln "Finger_2_Roll" -at "double";
 	addAttr -ci true -sn "Finger_3_Roll" -ln "Finger_3_Roll" -at "double";
+	setAttr ".ro" 2;
 	setAttr -k off ".sz";
 	setAttr -k off ".sx";
 	setAttr -k off ".sy";
@@ -36369,7 +36371,7 @@ createNode place2dTexture -n "place2dTexture1";
 	setAttr ".wu" no;
 	setAttr ".wv" no;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "43C26F5C-4028-7D41-67B2-64BBE2F07466";
+	rename -uid "9A92876E-4819-0F55-1443-528C370F9C4D";
 	setAttr -s 3 ".lnk";
 	setAttr -s 3 ".slnk";
 select -ne :time1;
@@ -36379,6 +36381,7 @@ select -ne :time1;
 	setAttr -cb on ".bnm";
 	setAttr ".o" 5;
 	setAttr ".unw" 5;
+select -ne :sequenceManager1;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
