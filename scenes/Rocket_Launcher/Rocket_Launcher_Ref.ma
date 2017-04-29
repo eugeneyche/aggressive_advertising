@@ -1,6 +1,6 @@
 //Maya ASCII 2017 scene
 //Name: Rocket_Launcher_Ref.ma
-//Last modified: Fri, Apr 28, 2017 08:34:27 PM
+//Last modified: Sat, Apr 29, 2017 01:36:33 AM
 //Codeset: 1252
 requires maya "2017";
 requires -nodeType "PxrBump" -nodeType "PxrLMMetal" -nodeType "PxrVoronoise" -nodeType "PxrFlakes"
@@ -471,12 +471,12 @@ createNode mesh -n "DetailSideShape" -p "DetailSide";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "SupportBase" -p "Main";
-	rename -uid "08581D3A-4C8C-FFCC-FF08-50AD23006C63";
+createNode transform -n "SupportBase1" -p "Main";
+	rename -uid "827D6D61-486F-A264-F64F-F5BB9AF8AF22";
 	setAttr ".rp" -type "double3" 0 -1.8125 0.044305334724067613 ;
 	setAttr ".sp" -type "double3" 0 -1.8125 0.044305334724067613 ;
-createNode mesh -n "SupportBaseShape" -p "SupportBase";
-	rename -uid "95E01F07-48CC-2279-8774-2FB7F2BE1FF3";
+createNode mesh -n "SupportBase1Shape" -p "SupportBase1";
+	rename -uid "1CF72BB0-465F-8858-9865-E2B71D079151";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
@@ -30945,12 +30945,12 @@ createNode mesh -n "DetailShape3" -p "Detail3";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "SupportTruss" -p "Upper_Body";
-	rename -uid "0F48EDB2-4BE9-0396-F088-C58BF9010E9B";
+createNode transform -n "SupportTruss1" -p "Upper_Body";
+	rename -uid "43E51232-47E1-AEAA-8F03-E8881F2193C8";
 	setAttr ".rp" -type "double3" -1.561364293098449 -1.5625 -2.2204460492503131e-016 ;
 	setAttr ".sp" -type "double3" -1.561364293098449 -1.5625 -2.2204460492503131e-016 ;
-createNode mesh -n "SupportTrussShape" -p "SupportTruss";
-	rename -uid "77FC7BD4-4FC4-476A-CC44-099E693E00FE";
+createNode mesh -n "SupportTruss1Shape" -p "SupportTruss1";
+	rename -uid "03359ABF-4468-3346-9AEC-0D982D5F28DD";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
@@ -32678,9 +32678,9 @@ createNode materialInfo -n "materialInfo4";
 createNode shadingEngine -n "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG";
 	rename -uid "230A009D-4A26-E916-9FF0-79A203AD29D6";
 	setAttr ".ihi" 0;
-	setAttr -s 7 ".dsm";
+	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
-createNode PxrLMMetal -n "Painted_Metal_Beige_Net:PaintedMetal_Beige";
+createNode PxrLMMetal -n "Painted_Metal_XDPLZ";
 	rename -uid "42264BE4-4150-3B5B-F4ED-3182AE088F94";
 	setAttr ".kappa" -type "float3" 9.2238741 6.2695212 4.8370152 ;
 	setAttr ".roughness" 0.69999998807907104;
@@ -32750,7 +32750,7 @@ createNode materialInfo -n "materialInfo2";
 createNode shadingEngine -n "PxrLMMetal2SG";
 	rename -uid "FDD78816-48CA-3B6E-8776-7A94BB8F2963";
 	setAttr ".ihi" 0;
-	setAttr -s 22 ".dsm";
+	setAttr -s 27 ".dsm";
 	setAttr ".ro" yes;
 createNode PxrLMMetal -n "Basic_Metal_Material";
 	rename -uid "BA6D5BFE-4CE4-F5A5-777A-2E8EC41D9004";
@@ -32766,7 +32766,7 @@ createNode groupId -n "groupId3";
 	rename -uid "767A01D7-476E-63E2-BB92-B4ABE96E488D";
 	setAttr ".ihi" 0;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "759405FD-4E64-0C8F-0294-C5965338BE10";
+	rename -uid "5D6B8A76-4D69-80D9-7B9E-2F97594C0343";
 	setAttr -s 6 ".lnk";
 	setAttr -s 6 ".slnk";
 select -ne :time1;
@@ -32787,7 +32787,7 @@ select -ne :renderPartition;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 6 ".st";
+	setAttr -s 5 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 select -ne :renderGlobalsList1;
@@ -32852,7 +32852,22 @@ select -ne :initialParticleSE;
 select -ne :defaultRenderGlobals;
 	setAttr ".ren" -type "string" "renderManRIS";
 select -ne :defaultResolution;
-	setAttr ".pa" 1;
+	setAttr -av -k on ".cch";
+	setAttr -k on ".ihi";
+	setAttr -av -k on ".nds";
+	setAttr -k on ".bnm";
+	setAttr -av ".w";
+	setAttr -av ".h";
+	setAttr -av ".pa" 1;
+	setAttr -av ".al";
+	setAttr -av ".dar";
+	setAttr -av -k on ".ldar";
+	setAttr -k on ".dpi";
+	setAttr -av -k on ".off";
+	setAttr -av -k on ".fld";
+	setAttr -av -k on ".zsl";
+	setAttr -k on ".isu";
+	setAttr -k on ".pdu";
 select -ne :defaultLightSet;
 	setAttr -k on ".cch";
 	setAttr -k on ".ihi";
@@ -32964,28 +32979,17 @@ connectAttr "Upper_Body_orientConstraint1.w0" "Upper_Body_orientConstraint1.tg[0
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
 connectAttr "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.msg" "materialInfo4.sg"
 		;
-connectAttr "Painted_Metal_Beige_Net:PaintedMetal_Beige.msg" "materialInfo4.m";
-connectAttr "Painted_Metal_Beige_Net:PaintedMetal_Beige.msg" "materialInfo4.t" -na
+connectAttr "Painted_Metal_XDPLZ.msg" "materialInfo4.m";
+connectAttr "Painted_Metal_XDPLZ.msg" "materialInfo4.t" -na;
+connectAttr "Painted_Metal_XDPLZ.oc" "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.ss"
 		;
-connectAttr "Painted_Metal_Beige_Net:PaintedMetal_Beige.oc" "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.ss"
-		;
-connectAttr "SupportTrussShape.iog" "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.dsm"
-		 -na;
 connectAttr "DetailSideShape.iog" "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.dsm"
 		 -na;
 connectAttr "DetailSide1Shape.iog" "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.dsm"
 		 -na;
-connectAttr "DetailShape5.iog" "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.dsm"
-		 -na;
-connectAttr "DetailShape4.iog" "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.dsm"
-		 -na;
-connectAttr "DetailShape3.iog" "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.dsm"
-		 -na;
-connectAttr "DetailShape2.iog" "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.dsm"
-		 -na;
-connectAttr "Painted_Metal_Beige_Net:Painted_Thin_Mat_Net1:PxrLMLayer1.result" "Painted_Metal_Beige_Net:PaintedMetal_Beige.lmlayer"
+connectAttr "Painted_Metal_Beige_Net:Painted_Thin_Mat_Net1:PxrLMLayer1.result" "Painted_Metal_XDPLZ.lmlayer"
 		;
-connectAttr "Painted_Metal_Beige_Net:Painted_Thin_Mat_Net1:PxrFlakes3.resultN" "Painted_Metal_Beige_Net:PaintedMetal_Beige.bumpNormal"
+connectAttr "Painted_Metal_Beige_Net:Painted_Thin_Mat_Net1:PxrFlakes3.resultN" "Painted_Metal_XDPLZ.bumpNormal"
 		;
 connectAttr "Painted_Metal_Beige_Net:Painted_Thin_Mat_Net1:remapColor1.ocr" "Painted_Metal_Beige_Net:Painted_Thin_Mat_Net1:PxrLMLayer1.layerMask"
 		;
@@ -33014,7 +33018,7 @@ connectAttr "|Main|Upper_Body|Launcher|Latch_2|pCube6|pCubeShape6.iog" "PxrLMMet
 		 -na;
 connectAttr "|Main|Upper_Body|Launcher|Latch_1|pCube6|pCubeShape6.iog" "PxrLMMetal1SG.dsm"
 		 -na;
-connectAttr "SupportBaseShape.iog" "PxrLMMetal1SG.dsm" -na;
+connectAttr "SupportBase1Shape.iog" "PxrLMMetal1SG.dsm" -na;
 connectAttr "groupId2.msg" "PxrLMMetal1SG.gn" -na;
 connectAttr "groupId3.msg" "PxrLMMetal1SG.gn" -na;
 connectAttr "PxrLMLayer1.result" "Base_Material.lmlayer";
@@ -33045,6 +33049,11 @@ connectAttr "DetailShape.iog" "PxrLMMetal2SG.dsm" -na;
 connectAttr "DetailShape6.iog" "PxrLMMetal2SG.dsm" -na;
 connectAttr "DetailShape7.iog" "PxrLMMetal2SG.dsm" -na;
 connectAttr "SupportTwistShape.iog" "PxrLMMetal2SG.dsm" -na;
+connectAttr "DetailShape2.iog" "PxrLMMetal2SG.dsm" -na;
+connectAttr "DetailShape3.iog" "PxrLMMetal2SG.dsm" -na;
+connectAttr "DetailShape5.iog" "PxrLMMetal2SG.dsm" -na;
+connectAttr "DetailShape4.iog" "PxrLMMetal2SG.dsm" -na;
+connectAttr "SupportTruss1Shape.iog" "PxrLMMetal2SG.dsm" -na;
 connectAttr "groupId4.msg" "PxrLMMetal2SG.gn" -na;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
@@ -33062,8 +33071,7 @@ connectAttr "Painted_Metal_Beige_Net:PaintedMetal_BeigeSG.pa" ":renderPartition.
 		 -na;
 connectAttr "Base_Material.msg" ":defaultShaderList1.s" -na;
 connectAttr "Basic_Metal_Material.msg" ":defaultShaderList1.s" -na;
-connectAttr "Painted_Metal_Beige_Net:PaintedMetal_Beige.msg" ":defaultShaderList1.s"
-		 -na;
+connectAttr "Painted_Metal_XDPLZ.msg" ":defaultShaderList1.s" -na;
 connectAttr "Painted_Metal_Beige_Net:Painted_Thin_Mat_Net1:contrast1.msg" ":defaultRenderUtilityList1.u"
 		 -na;
 connectAttr "Painted_Metal_Beige_Net:Painted_Thin_Mat_Net1:remapColor1.msg" ":defaultRenderUtilityList1.u"
