@@ -1,10 +1,11 @@
 //Maya ASCII 2017 scene
 //Name: Stuff_Robot_Ref.ma
-//Last modified: Sat, Apr 29, 2017 06:18:27 PM
+//Last modified: Sun, Apr 30, 2017 05:44:36 PM
 //Codeset: 1252
 requires maya "2017";
-requires -nodeType "PxrLMMetal" -nodeType "PxrSphereLight" -nodeType "PxrLMPlastic"
-		 -nodeType "PxrConstant" -nodeType "PxrDisney" -nodeType "PxrRectLight" "RenderMan_for_Maya" "21.3";
+requires -nodeType "PxrLMMetal" -nodeType "PxrLayerSurface" -nodeType "PxrSphereLight"
+		 -nodeType "PxrLayerMixer" -nodeType "PxrLMPlastic" -nodeType "PxrConstant" -nodeType "PxrDisney"
+		 -nodeType "PxrLayer" -nodeType "PxrRectLight" "RenderMan_for_Maya" "21.3";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -348,11 +349,11 @@ createNode mesh -n "BodyShape" -p "Body";
 	rename -uid "198B3328-4EBE-937E-278C-28B3820A1005";
 	setAttr -k off ".v";
 	setAttr -s 5 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 137 "f[3]" "f[7]" "f[11]" "f[15]" "f[19]" "f[23]" "f[27]" "f[31]" "f[35]" "f[39]" "f[43]" "f[47]" "f[51]" "f[55]" "f[59]" "f[67]" "f[71]" "f[75]" "f[79]" "f[83]" "f[87]" "f[91]" "f[95]" "f[99]" "f[103]" "f[107]" "f[111:126]" "f[168:182]" "f[253:273]" "f[275:279]" "f[281:301]" "f[303:307]" "f[309:329]" "f[331:335]" "f[337:357]" "f[359:363]" "f[365:385]" "f[387:419]" "f[421:441]" "f[443:531]" "f[552]" "f[560:587]" "f[619]" "f[621]" "f[623]" "f[625]" "f[627]" "f[629]" "f[631]" "f[633]" "f[635]" "f[637]" "f[639]" "f[641]" "f[643]" "f[645]" "f[647]" "f[649]" "f[651]" "f[653]" "f[655:657]" "f[659]" "f[663]" "f[665]" "f[667]" "f[669]" "f[671]" "f[703]" "f[707]" "f[711]" "f[715]" "f[719]" "f[723]" "f[727]" "f[731]" "f[735]" "f[739]" "f[743]" "f[747]" "f[751]" "f[755]" "f[759]" "f[767]" "f[771]" "f[775]" "f[779]" "f[783]" "f[787]" "f[791]" "f[795]" "f[799]" "f[803]" "f[807]" "f[811:826]" "f[868:882]" "f[953:973]" "f[975:979]" "f[981:1001]" "f[1003:1007]" "f[1009:1029]" "f[1031:1035]" "f[1037:1057]" "f[1059:1063]" "f[1065:1085]" "f[1087:1119]" "f[1121:1141]" "f[1143:1231]" "f[1260:1287]" "f[1319]" "f[1321]" "f[1323]" "f[1325]" "f[1327]" "f[1329]" "f[1331]" "f[1333]" "f[1335]" "f[1337]" "f[1339]" "f[1341]" "f[1343]" "f[1345]" "f[1347]" "f[1349]" "f[1351]" "f[1353]" "f[1355]" "f[1357]" "f[1359]" "f[1363]" "f[1365]" "f[1367]" "f[1369]" "f[1371]" "f[1400:1807]" "f[1834:1862]" "f[1889:2015]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 138 "f[3]" "f[7]" "f[11]" "f[15]" "f[19]" "f[23]" "f[27]" "f[31]" "f[35]" "f[39]" "f[43]" "f[47]" "f[51]" "f[55]" "f[59]" "f[67]" "f[71]" "f[75]" "f[79]" "f[83]" "f[87]" "f[91]" "f[95]" "f[99]" "f[103]" "f[107]" "f[111:126]" "f[168:182]" "f[253:273]" "f[275:279]" "f[281:301]" "f[303:307]" "f[309:329]" "f[331:335]" "f[337:357]" "f[359:363]" "f[365:385]" "f[387:391]" "f[421:441]" "f[443:531]" "f[552]" "f[560:587]" "f[619]" "f[621]" "f[623]" "f[625]" "f[627]" "f[629]" "f[631]" "f[633]" "f[635]" "f[637]" "f[639]" "f[641]" "f[643]" "f[645]" "f[647]" "f[649]" "f[651]" "f[653]" "f[655:657]" "f[659]" "f[663]" "f[665]" "f[667]" "f[669]" "f[671]" "f[703]" "f[707]" "f[711]" "f[715]" "f[719]" "f[723]" "f[727]" "f[731]" "f[735]" "f[739]" "f[743]" "f[747]" "f[751]" "f[755]" "f[759]" "f[767]" "f[771]" "f[775]" "f[779]" "f[783]" "f[787]" "f[791]" "f[795]" "f[799]" "f[803]" "f[807]" "f[811:826]" "f[868:882]" "f[953:973]" "f[975:979]" "f[981:1001]" "f[1003:1007]" "f[1009:1029]" "f[1031:1035]" "f[1037:1057]" "f[1059:1063]" "f[1065:1085]" "f[1087:1091]" "f[1121:1141]" "f[1143:1231]" "f[1260:1287]" "f[1319]" "f[1321]" "f[1323]" "f[1325]" "f[1327]" "f[1329]" "f[1331]" "f[1333]" "f[1335]" "f[1337]" "f[1339]" "f[1341]" "f[1343]" "f[1345]" "f[1347]" "f[1349]" "f[1351]" "f[1353]" "f[1355]" "f[1357]" "f[1359]" "f[1363]" "f[1365]" "f[1367]" "f[1369]" "f[1371]" "f[1400:1511]" "f[1624:1807]" "f[1834:1862]" "f[1889:2015]";
 	setAttr ".iog[0].og[1].gcl" -type "componentList" 60 "f[532:551]" "f[553:559]" "f[616]" "f[618]" "f[620]" "f[622]" "f[624]" "f[626]" "f[628]" "f[630]" "f[632]" "f[634]" "f[636]" "f[638]" "f[640]" "f[642]" "f[644]" "f[646]" "f[648]" "f[650]" "f[652]" "f[654]" "f[658]" "f[660]" "f[662]" "f[664]" "f[666]" "f[668]" "f[670]" "f[672:699]" "f[1232:1259]" "f[1316]" "f[1318]" "f[1320]" "f[1322]" "f[1324]" "f[1326]" "f[1328]" "f[1330]" "f[1332]" "f[1334]" "f[1336]" "f[1338]" "f[1340]" "f[1342]" "f[1344]" "f[1346]" "f[1348]" "f[1350]" "f[1352]" "f[1354]" "f[1356]" "f[1358]" "f[1360]" "f[1362]" "f[1364]" "f[1366]" "f[1368]" "f[1370]" "f[1372:1399]";
 	setAttr ".iog[0].og[2].gcl" -type "componentList" 1 "f[1813]";
 	setAttr ".iog[0].og[3].gcl" -type "componentList" 58 "f[0:2]" "f[4:6]" "f[8:10]" "f[12:14]" "f[16:18]" "f[20:22]" "f[24:26]" "f[28:30]" "f[32:34]" "f[36:38]" "f[40:42]" "f[44:46]" "f[48:50]" "f[52:54]" "f[56:58]" "f[64:66]" "f[68:70]" "f[72:74]" "f[76:78]" "f[80:82]" "f[84:86]" "f[88:90]" "f[92:94]" "f[96:98]" "f[100:102]" "f[104:106]" "f[108:110]" "f[140:154]" "f[156:167]" "f[700:702]" "f[704:706]" "f[708:710]" "f[712:714]" "f[716:718]" "f[720:722]" "f[724:726]" "f[728:730]" "f[732:734]" "f[736:738]" "f[740:742]" "f[744:746]" "f[748:750]" "f[752:754]" "f[756:758]" "f[764:766]" "f[768:770]" "f[772:774]" "f[776:778]" "f[780:782]" "f[784:786]" "f[788:790]" "f[792:794]" "f[796:798]" "f[800:802]" "f[804:806]" "f[808:810]" "f[840:854]" "f[856:867]";
-	setAttr ".iog[0].og[4].gcl" -type "componentList" 39 "f[60:63]" "f[127:139]" "f[155]" "f[183:252]" "f[274]" "f[280]" "f[302]" "f[308]" "f[330]" "f[336]" "f[358]" "f[364]" "f[386]" "f[420]" "f[442]" "f[588:615]" "f[617]" "f[661]" "f[760:763]" "f[827:839]" "f[855]" "f[883:952]" "f[974]" "f[980]" "f[1002]" "f[1008]" "f[1030]" "f[1036]" "f[1058]" "f[1064]" "f[1086]" "f[1120]" "f[1142]" "f[1288:1315]" "f[1317]" "f[1361]" "f[1808:1812]" "f[1814:1833]" "f[1863:1888]";
+	setAttr ".iog[0].og[4].gcl" -type "componentList" 40 "f[60:63]" "f[127:139]" "f[155]" "f[183:252]" "f[274]" "f[280]" "f[302]" "f[308]" "f[330]" "f[336]" "f[358]" "f[364]" "f[386]" "f[392:420]" "f[442]" "f[588:615]" "f[617]" "f[661]" "f[760:763]" "f[827:839]" "f[855]" "f[883:952]" "f[974]" "f[980]" "f[1002]" "f[1008]" "f[1030]" "f[1036]" "f[1058]" "f[1064]" "f[1086]" "f[1092:1120]" "f[1142]" "f[1288:1315]" "f[1317]" "f[1361]" "f[1512:1623]" "f[1808:1812]" "f[1814:1833]" "f[1863:1888]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.5 1 ;
@@ -8068,8 +8069,8 @@ createNode mesh -n "UpperArm_LShape" -p "UpperArm_L";
 	rename -uid "9AC17C55-014B-6058-40EF-26B9E225FB44";
 	setAttr -k off ".v";
 	setAttr -s 2 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 17 "f[0:107]" "f[120]" "f[122]" "f[124]" "f[126]" "f[128]" "f[130]" "f[132]" "f[134]" "f[136]" "f[138]" "f[140]" "f[142]" "f[144:353]" "f[366:377]" "f[402:435]" "f[448:459]";
-	setAttr ".iog[0].og[1].gcl" -type "componentList" 16 "f[108:119]" "f[121]" "f[123]" "f[125]" "f[127]" "f[129]" "f[131]" "f[133]" "f[135]" "f[137]" "f[139]" "f[141]" "f[143]" "f[354:365]" "f[378:401]" "f[436:447]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 15 "f[0:107]" "f[120]" "f[122]" "f[124]" "f[126]" "f[128]" "f[130]" "f[132]" "f[134]" "f[136]" "f[138]" "f[140]" "f[142]" "f[144:353]" "f[366:459]";
+	setAttr ".iog[0].og[1].gcl" -type "componentList" 14 "f[108:119]" "f[121]" "f[123]" "f[125]" "f[127]" "f[129]" "f[131]" "f[133]" "f[135]" "f[137]" "f[139]" "f[141]" "f[143]" "f[354:365]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.5 0.5 ;
@@ -9661,8 +9662,8 @@ createNode mesh -n "LowerArm_LShape" -p "LowerArm_L";
 	rename -uid "87D25084-7A48-A901-75E8-03B283DE2E7B";
 	setAttr -k off ".v";
 	setAttr -s 2 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 5 "f[0:11]" "f[36:52]" "f[77:100]" "f[125:153]" "f[166:177]";
-	setAttr ".iog[0].og[1].gcl" -type "componentList" 4 "f[12:35]" "f[53:76]" "f[101:124]" "f[154:165]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 3 "f[0:11]" "f[36:52]" "f[77:177]";
+	setAttr ".iog[0].og[1].gcl" -type "componentList" 2 "f[12:35]" "f[53:76]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.5 0.5 ;
@@ -10989,12 +10990,11 @@ createNode transform -n "palm_L" -p "LowerArm_L";
 createNode mesh -n "palm_LShape" -p "palm_L";
 	rename -uid "03FFFC00-B54E-2E1E-421C-AB95C316FC7C";
 	setAttr -k off ".v";
-	setAttr -s 5 ".iog[0].og";
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".iog[0].og[3].gcl" -type "componentList" 3 "f[0:19]" "f[40:59]" "f[80:539]";
 	setAttr ".iog[0].og[4].gcl" -type "componentList" 2 "f[20:39]" "f[60:79]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr -s 3 ".ciog[0].cog";
 	setAttr ".pv" -type "double2" 0.50000005960464478 0.87500014901161194 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 586 ".uvst[0].uvsp";
@@ -12731,11 +12731,14 @@ createNode transform -n "thumbJnt1_L3" -p "palm_L";
 createNode mesh -n "thumbJnt1_L3Shape" -p "thumbJnt1_L3";
 	rename -uid "E268CDCD-4BC5-BCFE-DAAB-729E49CA4520";
 	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 3 "f[0:29]" "f[50:147]" "f[50:147]";
 	setAttr ".iog[0].og[1].gcl" -type "componentList" 1 "f[30:49]";
+	setAttr ".iog[0].og[2].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr ".iog[0].og[3].gcl" -type "componentList" 1 "f[30:49]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr -s 2 ".ciog[0].cog";
 	setAttr ".pv" -type "double2" 0.9500001072883606 0.55000001192092896 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 177 ".uvst[0].uvsp[0:176]" -type "float2" 0 0.1 0 0.13415051
@@ -14706,11 +14709,14 @@ createNode transform -n "thumbJnt1_L2" -p "palm_L";
 createNode mesh -n "thumbJnt1_L2Shape" -p "thumbJnt1_L2";
 	rename -uid "2A5C2E18-4FB4-E8FB-988F-089982CB1D55";
 	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 3 "f[0:29]" "f[50:147]" "f[50:147]";
 	setAttr ".iog[0].og[1].gcl" -type "componentList" 1 "f[30:49]";
+	setAttr ".iog[0].og[2].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr ".iog[0].og[3].gcl" -type "componentList" 1 "f[30:49]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr -s 2 ".ciog[0].cog";
 	setAttr ".pv" -type "double2" 0.9500001072883606 0.55000001192092896 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 177 ".uvst[0].uvsp[0:176]" -type "float2" 0 0.1 0 0.13415051
@@ -16685,11 +16691,14 @@ createNode transform -n "thumbJnt1_L1" -p "palm_L";
 createNode mesh -n "thumbJnt1_L1Shape" -p "thumbJnt1_L1";
 	rename -uid "1F1CEC27-B647-C10F-3904-98860934BAEB";
 	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 3 "f[0:29]" "f[50:147]" "f[50:147]";
 	setAttr ".iog[0].og[1].gcl" -type "componentList" 1 "f[30:49]";
+	setAttr ".iog[0].og[2].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr ".iog[0].og[3].gcl" -type "componentList" 1 "f[30:49]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr -s 2 ".ciog[0].cog";
 	setAttr ".pv" -type "double2" 0.9500001072883606 0.55000001192092896 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 177 ".uvst[0].uvsp[0:176]" -type "float2" 0 0.1 0 0.13415051
@@ -18700,12 +18709,11 @@ createNode transform -n "UpperArm_R" -p "Body";
 createNode mesh -n "UpperArm_RShape" -p "UpperArm_R";
 	rename -uid "7358AD93-48A6-7F17-542E-8E80EE18AE59";
 	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".iog[0].og[2].gcl" -type "componentList" 17 "f[0:107]" "f[120]" "f[122]" "f[124]" "f[126]" "f[128]" "f[130]" "f[132]" "f[134]" "f[136]" "f[138]" "f[140]" "f[142]" "f[144:353]" "f[366:377]" "f[402:423]" "f[448:459]";
-	setAttr ".iog[0].og[3].gcl" -type "componentList" 16 "f[108:119]" "f[121]" "f[123]" "f[125]" "f[127]" "f[129]" "f[131]" "f[133]" "f[135]" "f[137]" "f[139]" "f[141]" "f[143]" "f[354:365]" "f[378:401]" "f[424:447]";
+	setAttr -s 2 ".iog[0].og";
+	setAttr ".iog[0].og[2].gcl" -type "componentList" 16 "f[0:107]" "f[120]" "f[122]" "f[124]" "f[126]" "f[128]" "f[130]" "f[132]" "f[134]" "f[136]" "f[138]" "f[140]" "f[142]" "f[144:353]" "f[366:423]" "f[436:459]";
+	setAttr ".iog[0].og[3].gcl" -type "componentList" 15 "f[108:119]" "f[121]" "f[123]" "f[125]" "f[127]" "f[129]" "f[131]" "f[133]" "f[135]" "f[137]" "f[139]" "f[141]" "f[143]" "f[354:365]" "f[424:435]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr -s 2 ".ciog[0].cog";
 	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 1152 ".uvst[0].uvsp";
@@ -20294,8 +20302,8 @@ createNode mesh -n "LowerArm_RShape" -p "LowerArm_R";
 	rename -uid "66491944-4501-35D3-98D1-83A0DC1A3B0D";
 	setAttr -k off ".v";
 	setAttr -s 2 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 5 "f[0:11]" "f[36:52]" "f[77:100]" "f[125:141]" "f[166:177]";
-	setAttr ".iog[0].og[1].gcl" -type "componentList" 4 "f[12:35]" "f[53:76]" "f[101:124]" "f[142:165]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 3 "f[0:11]" "f[41:52]" "f[77:177]";
+	setAttr ".iog[0].og[1].gcl" -type "componentList" 2 "f[12:40]" "f[53:76]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.5 0.5 ;
@@ -21601,12 +21609,11 @@ createNode transform -n "palm_R" -p "LowerArm_R";
 createNode mesh -n "palm_RShape" -p "palm_R";
 	rename -uid "047F334A-459E-1728-5B4C-118CB6075BA1";
 	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
+	setAttr -s 2 ".iog[0].og";
 	setAttr ".iog[0].og[2].gcl" -type "componentList" 3 "f[0:19]" "f[40:59]" "f[80:539]";
 	setAttr ".iog[0].og[3].gcl" -type "componentList" 2 "f[20:39]" "f[60:79]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr -s 2 ".ciog[0].cog";
 	setAttr ".pv" -type "double2" 0.50000005960464478 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 586 ".uvst[0].uvsp";
@@ -23342,11 +23349,14 @@ createNode transform -n "thumbJnt1_R3" -p "palm_R";
 createNode mesh -n "thumbJnt1_R3Shape" -p "thumbJnt1_R3";
 	rename -uid "FEAA4570-4432-D801-342D-ABB85370FA54";
 	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 3 "f[0:29]" "f[50:147]" "f[50:147]";
 	setAttr ".iog[0].og[1].gcl" -type "componentList" 1 "f[30:49]";
+	setAttr ".iog[0].og[2].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr ".iog[0].og[3].gcl" -type "componentList" 1 "f[30:49]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr -s 2 ".ciog[0].cog";
 	setAttr ".pv" -type "double2" 0.9500001072883606 0.55000001192092896 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 177 ".uvst[0].uvsp[0:176]" -type "float2" 0 0.1 0 0.13415051
@@ -25314,11 +25324,14 @@ createNode transform -n "thumbJnt1_R2" -p "palm_R";
 createNode mesh -n "thumbJnt1_R2Shape" -p "thumbJnt1_R2";
 	rename -uid "224B6538-4146-72DE-92A1-1395BE4DCF8F";
 	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 3 "f[0:29]" "f[50:147]" "f[50:147]";
 	setAttr ".iog[0].og[1].gcl" -type "componentList" 1 "f[30:49]";
+	setAttr ".iog[0].og[2].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr ".iog[0].og[3].gcl" -type "componentList" 1 "f[30:49]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr -s 2 ".ciog[0].cog";
 	setAttr ".pv" -type "double2" 0.9500001072883606 0.55000001192092896 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 177 ".uvst[0].uvsp[0:176]" -type "float2" 0 0.1 0 0.13415051
@@ -27291,11 +27304,14 @@ createNode transform -n "thumbJnt1_R1" -p "palm_R";
 createNode mesh -n "thumbJnt1_R1Shape" -p "thumbJnt1_R1";
 	rename -uid "8B5986FF-422B-C45E-9FBC-8C91CB9C8246";
 	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 3 "f[0:29]" "f[50:147]" "f[50:147]";
 	setAttr ".iog[0].og[1].gcl" -type "componentList" 1 "f[30:49]";
+	setAttr ".iog[0].og[2].gcl" -type "componentList" 2 "f[0:29]" "f[50:147]";
+	setAttr ".iog[0].og[3].gcl" -type "componentList" 1 "f[30:49]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr -s 2 ".ciog[0].cog";
 	setAttr ".pv" -type "double2" 0.9500001072883606 0.55000001192092896 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 177 ".uvst[0].uvsp[0:176]" -type "float2" 0 0.1 0 0.13415051
@@ -31895,11 +31911,12 @@ createNode transform -n "head" -p "Body";
 createNode mesh -n "headShape" -p "head";
 	rename -uid "FD602C45-47DE-D8CF-3967-F68DFB5D7082";
 	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 7 "f[20:291]" "f[352:431]" "f[712:811]" "f[832:871]" "f[1224:1235]" "f[1238:1253]" "f[1256:1299]";
+	setAttr -s 5 ".iog[0].og";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 8 "f[20:139]" "f[142:151]" "f[158:167]" "f[172:271]" "f[712:751]" "f[1224:1235]" "f[1238:1253]" "f[1256:1299]";
 	setAttr ".iog[0].og[1].gcl" -type "componentList" 5 "f[0:19]" "f[292:351]" "f[512:631]" "f[672:711]" "f[912:1191]";
 	setAttr ".iog[0].og[2].gcl" -type "componentList" 8 "f[432:471]" "f[492:511]" "f[632:671]" "f[812:831]" "f[872:911]" "f[1192:1223]" "f[1236:1237]" "f[1254:1255]";
 	setAttr ".iog[0].og[3].gcl" -type "componentList" 1 "f[472:491]";
+	setAttr ".iog[0].og[4].gcl" -type "componentList" 7 "f[140:141]" "f[152:157]" "f[168:171]" "f[272:291]" "f[352:431]" "f[752:811]" "f[832:871]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.50000005960464478 0.10000000149011612 ;
@@ -36776,21 +36793,28 @@ createNode groupId -n "groupId11";
 createNode shadingEngine -n "Plastic_Orange_Mat_Net:OrangePlasticSG";
 	rename -uid "E4B0FCDC-46D2-BF37-224E-60B268B7845D";
 	setAttr ".ihi" 0;
-	setAttr -s 43 ".dsm";
+	setAttr -s 36 ".dsm";
 	setAttr ".ro" yes;
 	setAttr -s 25 ".gn";
 createNode materialInfo -n "Plastic_Orange_Mat_Net:Fridge_Back_Light_Ref:materialInfo1";
 	rename -uid "9A74BC52-4642-3116-8C58-FA9F1B302E61";
-createNode PxrLMPlastic -n "Plastic_White";
+createNode PxrLMPlastic -n "Primary";
 	rename -uid "278E202F-4796-3354-870A-6A9C10CDCE31";
-	setAttr ".diffuseColor" -type "float3" 0.89851511 0.96611977 1.0000241 ;
-	setAttr ".incandescence" -type "float3" 0.050876454 0.050876454 0.050876454 ;
 	setAttr ".specularColor" -type "float3" 0.80000001 0.80000001 0.80000001 ;
 	setAttr ".specularRoughness" 0.20000000298023224;
 	setAttr ".specularAnisotropy" 0.30337077379226685;
 	setAttr ".clearcoatColor" -type "float3" 0.68539327 0.68539327 0.68539327 ;
 	setAttr ".clearcoatThickness" 0.10000000149011612;
 	setAttr ".clearcoatTransmission" -type "float3" 1 0.71469998 0.58819997 ;
+createNode multiplyDivide -n "GlowScale";
+	rename -uid "D3B8A544-42D7-2062-CE7A-DC9E4675874B";
+	setAttr ".i2" -type "float3" 0.25 0.25 0.25 ;
+createNode remapHsv -n "BlueColor";
+	rename -uid "4EEFDFCA-4C61-D4A7-8323-2AA57B4F10EF";
+	setAttr ".cl" -type "float3" 0.10653836 0.48163044 0.78741819 ;
+	setAttr -s 2 ".h[0:1]"  0 0 1 1 1 1;
+	setAttr -s 2 ".s[0:1]"  0 0 1 1 1 1;
+	setAttr -s 2 ".v[0:1]"  0 0 1 1 1 1;
 createNode groupId -n "groupId12";
 	rename -uid "9914EF69-4D8F-B76B-B8C8-0ABE17F265B2";
 	setAttr ".ihi" 0;
@@ -36810,21 +36834,28 @@ createNode groupId -n "groupId42";
 createNode shadingEngine -n "Plastic_BlueSG";
 	rename -uid "8A144FEB-44FA-A1FB-DA91-7BA16D571527";
 	setAttr ".ihi" 0;
-	setAttr -s 12 ".dsm";
+	setAttr -s 19 ".dsm";
 	setAttr ".ro" yes;
-	setAttr -s 13 ".gn";
+	setAttr -s 14 ".gn";
 createNode materialInfo -n "materialInfo5";
 	rename -uid "B8EB9C3E-4C6F-D58C-5084-FB8ADA2F75B3";
-createNode PxrLMPlastic -n "Plastic_Blue";
+createNode PxrLMPlastic -n "Secondary";
 	rename -uid "4C09D9FB-4890-8D56-D72C-48B7B30CB679";
-	setAttr ".diffuseColor" -type "float3" 0.38005665 0.75931162 1.0000241 ;
-	setAttr ".incandescence" -type "float3" 0.022599598 0.040176135 0.050876454 ;
 	setAttr ".specularColor" -type "float3" 0.79934168 0.79934168 0.79934168 ;
 	setAttr ".specularRoughness" 0.20000000298023224;
 	setAttr ".specularAnisotropy" 0.30337077379226685;
 	setAttr ".clearcoatColor" -type "float3" 0.68539327 0.68539327 0.68539327 ;
 	setAttr ".clearcoatThickness" 0.10000000149011612;
 	setAttr ".clearcoatTransmission" -type "float3" 1 0.71469998 0.58819997 ;
+createNode multiplyDivide -n "GlowScale1";
+	rename -uid "AA9E0CCF-442D-9829-209B-818CE1C818EB";
+	setAttr ".i2" -type "float3" 0.25 0.25 0.25 ;
+createNode remapHsv -n "WhiteColor";
+	rename -uid "9275F932-4A55-BCA7-8956-A9B6FE7C3C7E";
+	setAttr ".cl" -type "float3" 1.0000241 1.0000241 1.0000241 ;
+	setAttr -s 2 ".h[0:1]"  0 0 1 1 1 1;
+	setAttr -s 2 ".s[0:1]"  0 0 1 1 1 1;
+	setAttr -s 2 ".v[0:1]"  0 0 1 1 1 1;
 createNode groupId -n "groupId43";
 	rename -uid "9DECEF76-4B34-E1C6-7A31-3CB6D50C5DB1";
 	setAttr ".ihi" 0;
@@ -36871,37 +36902,52 @@ createNode groupId -n "groupId38";
 createNode groupId -n "groupId37";
 	rename -uid "6441EF02-4619-95C2-3359-80B163E7F631";
 	setAttr ".ihi" 0;
+createNode materialInfo -n "materialInfo8";
+	rename -uid "57CDD856-467B-E85E-B00D-E4B31A340FD3";
+createNode shadingEngine -n "PxrLayerSurface1SG";
+	rename -uid "EAA1E3DF-41E2-7B35-C6D9-13AAE60CC1F4";
+	setAttr ".ihi" 0;
+	setAttr -s 4 ".dsm";
+	setAttr ".ro" yes;
+createNode PxrLayerSurface -n "GlassGlow";
+	rename -uid "51EC38BA-40DE-BEE8-CC77-158FE4B8FECF";
+createNode PxrLayerMixer -n "PxrLayerMixer1";
+	rename -uid "D2692B50-4C24-93D2-8B1C-7781DE18BD59";
+	setAttr ".layer1Mask" 0.75;
+createNode PxrLayer -n "Base";
+	rename -uid "71BB9CE1-4246-D1F5-9064-54BD9ACBCB41";
+	setAttr ".enableDiffuse" no;
+	setAttr ".enableRR" yes;
+	setAttr ".rrRefractionGain" 1;
+	setAttr ".rrReflectionGain" 0.80000001192092896;
+	setAttr ".rrRefractionColor" -type "float3" 0.31855452 0.72256815 1.0000241 ;
+	setAttr ".rrRoughness" 0;
+createNode PxrLayer -n "Glow";
+	rename -uid "8EA519A6-4EA3-BEFE-BD2D-41B070F66113";
+	setAttr ".enableDiffuse" no;
+	setAttr ".enableGlow" yes;
+	setAttr ".glowGain" 1;
+	setAttr ".glowColor" -type "float3" 0.31855452 0.72261715 1.0000241 ;
 createNode groupId -n "groupId39";
 	rename -uid "F51A1AC1-498E-CFAF-8031-B18EDE3CE774";
 	setAttr ".ihi" 0;
 createNode groupId -n "groupId41";
 	rename -uid "B7DFFCA7-4BB3-05EC-8DE6-76BD46C2D9D0";
 	setAttr ".ihi" 0;
-createNode shadingEngine -n "PxrConstant1SG";
-	rename -uid "45FD47B4-4D61-207C-9758-C4BE7BD64AD9";
-	setAttr ".ihi" 0;
-	setAttr -s 3 ".dsm";
-	setAttr ".ro" yes;
-	setAttr -s 4 ".gn";
-createNode materialInfo -n "materialInfo3";
-	rename -uid "99AA9CF9-4089-5EA0-94B6-4294EC4496C6";
-createNode PxrConstant -n "EarLights";
-	rename -uid "C5D95119-459E-3BFD-B1BA-B0A5927E0390";
-	setAttr ".emitColor" -type "float3" 0.80000001 0.93333334 1 ;
 createNode groupId -n "groupId40";
 	rename -uid "47953F20-49E9-0F0B-C768-04938969EFD7";
 	setAttr ".ihi" 0;
 createNode unitConversion -n "unitConversion11";
 	rename -uid "47FEA9A8-4E20-DF4B-A24E-54AAA75B3983";
 	setAttr ".cf" 0.017453292519943295;
-createNode groupId -n "groupId60";
-	rename -uid "7BA6ABA8-4D9E-D94F-1090-CC8CED727BBD";
+createNode groupId -n "groupId77";
+	rename -uid "CBF9F50D-4166-1C80-47F4-D2B0A87F9E0E";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId62";
-	rename -uid "2A113BF9-4FA8-2136-8567-D1A758F32ED0";
+createNode groupId -n "groupId83";
+	rename -uid "D3A9EA2A-4E9C-F981-C633-5ABD12FB8237";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId61";
-	rename -uid "6E830A6E-4B4D-8119-F8CB-24B298500917";
+createNode groupId -n "groupId78";
+	rename -uid "885B700B-4D28-CB03-3E68-A790D13A3A6B";
 	setAttr ".ihi" 0;
 createNode unitConversion -n "unitConversion12";
 	rename -uid "9B7B6E12-437B-F052-F8A0-309ABED9215F";
@@ -36909,14 +36955,14 @@ createNode unitConversion -n "unitConversion12";
 createNode unitConversion -n "unitConversion9";
 	rename -uid "22F6216F-4A7E-7C87-2C2B-37A2AF4360BF";
 	setAttr ".cf" 0.017453292519943295;
-createNode groupId -n "groupId57";
-	rename -uid "84C01CDC-48A3-9153-D33B-9AA93FEDD84A";
+createNode groupId -n "groupId79";
+	rename -uid "3EEA655C-4EE3-6A77-9546-1FBD61FF2027";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId59";
-	rename -uid "CC01B0EF-435B-9750-51E6-DA8D34D6D382";
+createNode groupId -n "groupId84";
+	rename -uid "D98884F3-42D8-18A8-95E0-92BA0D9F5B2F";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId58";
-	rename -uid "061E65FA-4A2E-B4B1-985F-8B8EDD351296";
+createNode groupId -n "groupId80";
+	rename -uid "DDA51067-43DF-5750-0CFE-BB9A4ABE70B9";
 	setAttr ".ihi" 0;
 createNode unitConversion -n "unitConversion10";
 	rename -uid "8A73200D-4CF4-5254-7D0E-F4842CF769B3";
@@ -36924,14 +36970,14 @@ createNode unitConversion -n "unitConversion10";
 createNode unitConversion -n "unitConversion7";
 	rename -uid "38197A04-4DD1-6C1E-5F3B-DAB6669679EC";
 	setAttr ".cf" 0.017453292519943295;
-createNode groupId -n "groupId54";
-	rename -uid "D82DF3E3-454F-DB0B-9360-2E99A48AD9B3";
+createNode groupId -n "groupId81";
+	rename -uid "973866BB-4336-3EB7-E4A3-7D9CF6338829";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId56";
-	rename -uid "4A1E8D28-4CA3-6B68-F393-C8B036222E39";
+createNode groupId -n "groupId85";
+	rename -uid "CB647F0A-4858-75C3-23F7-D2B3181A7022";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId55";
-	rename -uid "55DE064C-4BE3-EB4F-FBAB-B4A577753EE2";
+createNode groupId -n "groupId82";
+	rename -uid "53712949-4428-F63A-C58B-AEA61AEFE5E8";
 	setAttr ".ihi" 0;
 createNode unitConversion -n "unitConversion8";
 	rename -uid "5BD62D40-4195-BC11-AFD7-F2B7C4FDBC9D";
@@ -36966,14 +37012,14 @@ createNode groupId -n "groupId31";
 createNode unitConversion -n "unitConversion5";
 	rename -uid "7B3ACC62-4778-A40F-84AD-049B0F10C00B";
 	setAttr ".cf" 0.017453292519943295;
-createNode groupId -n "groupId48";
-	rename -uid "575CD526-4E67-94AE-326B-5CA3D537F0E4";
+createNode groupId -n "groupId70";
+	rename -uid "418423EA-430B-618A-2999-06B4C5C2332B";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId50";
-	rename -uid "27BAEB31-4819-5151-2FAB-3C8FA6C484DE";
+createNode groupId -n "groupId75";
+	rename -uid "EE86246F-400C-0BB0-BA60-BBBBC3790218";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId49";
-	rename -uid "0E78AB27-43AC-0F48-D53B-DF90D3E2AC66";
+createNode groupId -n "groupId71";
+	rename -uid "3FD02726-4F08-EE5F-8C28-ED9D55E822FF";
 	setAttr ".ihi" 0;
 createNode unitConversion -n "unitConversion6";
 	rename -uid "C3038BFD-46FB-2982-1A93-71B076D75E71";
@@ -36981,14 +37027,14 @@ createNode unitConversion -n "unitConversion6";
 createNode unitConversion -n "unitConversion3";
 	rename -uid "BFEF1BF0-413E-B12A-AD41-7B8B81F6CDD5";
 	setAttr ".cf" 0.017453292519943295;
-createNode groupId -n "groupId45";
-	rename -uid "14C32A20-48C4-FA16-F1FC-C2867A7C50B4";
+createNode groupId -n "groupId72";
+	rename -uid "19867433-4292-355E-8AC9-63A3E3C2C473";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId47";
-	rename -uid "FA4CA50D-4D89-692B-46D9-C5AB370908B2";
+createNode groupId -n "groupId76";
+	rename -uid "8E1A2CAD-4ABD-0C36-DD19-709161DC325F";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId46";
-	rename -uid "89E68209-4B77-7B93-1054-D1AE533B5ABF";
+createNode groupId -n "groupId73";
+	rename -uid "3E72E937-403A-F358-215C-AD939DABD1B2";
 	setAttr ".ihi" 0;
 createNode unitConversion -n "unitConversion4";
 	rename -uid "836F5758-4FE8-EA1F-8A69-DCBA94F7DA37";
@@ -36996,14 +37042,14 @@ createNode unitConversion -n "unitConversion4";
 createNode unitConversion -n "unitConversion1";
 	rename -uid "63A32E68-4AF5-BAE3-E037-8D899EC7C14F";
 	setAttr ".cf" 0.017453292519943295;
-createNode groupId -n "groupId51";
-	rename -uid "36B6BBD5-4723-F3C2-3EA7-AC87E7EC91E0";
+createNode groupId -n "groupId68";
+	rename -uid "AEB6D9DD-40DA-2EC5-2CCF-54B13C42C11F";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId53";
-	rename -uid "ABA484B5-4A3B-FC36-A2EB-77B9368C9AD7";
+createNode groupId -n "groupId74";
+	rename -uid "C1970C09-4FCA-764A-C9E7-1BA31B204C21";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId52";
-	rename -uid "FCEECF91-4DBD-C632-05BD-DF83F40C7D80";
+createNode groupId -n "groupId69";
+	rename -uid "66127C2A-4BDD-4F50-9896-DC88F1791C5C";
 	setAttr ".ihi" 0;
 createNode unitConversion -n "unitConversion2";
 	rename -uid "8E8BCC39-4FE7-0319-268E-A28F1FBDF13F";
@@ -37017,13 +37063,23 @@ createNode groupId -n "groupId3";
 createNode groupId -n "groupId4";
 	rename -uid "645824FA-4734-9145-08F5-45BA853C51E0";
 	setAttr ".ihi" 0;
+createNode shadingEngine -n "PxrConstant1SG";
+	rename -uid "45FD47B4-4D61-207C-9758-C4BE7BD64AD9";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+	setAttr -s 4 ".gn";
+createNode materialInfo -n "materialInfo3";
+	rename -uid "99AA9CF9-4089-5EA0-94B6-4294EC4496C6";
+createNode PxrConstant -n "EarLights";
+	rename -uid "C5D95119-459E-3BFD-B1BA-B0A5927E0390";
+	setAttr ".emitColor" -type "float3" 0.80000001 0.93333334 1 ;
 createNode groupId -n "groupId5";
 	rename -uid "7CEB50DF-42B5-8941-10AB-359365EB32AB";
 	setAttr ".ihi" 0;
 createNode shadingEngine -n "PxrDisney1SG";
 	rename -uid "86A907FC-449F-1FBD-5E28-019C9A178F1B";
 	setAttr ".ihi" 0;
-	setAttr -s 3 ".dsm";
+	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "144C44D4-4AA9-DDA7-F181-0AA14945FCD8";
@@ -37045,13 +37101,16 @@ createNode place2dTexture -n "place2dTexture1";
 createNode multiplyDivide -n "multiplyDivide1";
 	rename -uid "A77BD3A7-4E51-3866-08BA-1CBD597B4B16";
 	setAttr ".i2" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+createNode groupId -n "groupId86";
+	rename -uid "29581506-48B5-6887-A96A-61808C256BA4";
+	setAttr ".ihi" 0;
 createNode groupId -n "groupId2";
 	rename -uid "3873D409-49B3-893B-B0FF-F4884558E5D1";
 	setAttr ".ihi" 0;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "D42E2453-4017-C622-820C-E5B36108171A";
-	setAttr -s 8 ".lnk";
-	setAttr -s 8 ".slnk";
+	rename -uid "D25B2129-4AE5-A181-40B6-10A0727C530C";
+	setAttr -s 11 ".lnk";
+	setAttr -s 11 ".slnk";
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -37071,7 +37130,7 @@ select -ne :renderPartition;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 8 ".st";
+	setAttr -s 9 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 select -ne :renderGlobalsList1;
@@ -37084,7 +37143,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 10 ".s";
+	setAttr -s 11 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -37096,7 +37155,7 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 3 ".u";
+	setAttr -s 7 ".u";
 select -ne :defaultRenderingList1;
 select -ne :lightList1;
 	setAttr -s 5 ".l";
@@ -37105,6 +37164,7 @@ select -ne :defaultTextureList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
+	setAttr -s 4 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -37289,31 +37349,32 @@ connectAttr "groupId39.id" "palm_LShape.iog.og[3].gid";
 connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "palm_LShape.iog.og[3].gco"
 		;
 connectAttr "groupId41.id" "palm_LShape.iog.og[4].gid";
-connectAttr "PxrConstant1SG.mwc" "palm_LShape.iog.og[4].gco";
+connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "palm_LShape.iog.og[4].gco"
+		;
 connectAttr "groupId40.id" "palm_LShape.ciog.cog[2].cgid";
 connectAttr "unitConversion11.o" "thumbJnt1_L3.rx";
-connectAttr "groupId60.id" "thumbJnt1_L3Shape.iog.og[0].gid";
-connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_L3Shape.iog.og[0].gco"
+connectAttr "groupId77.id" "thumbJnt1_L3Shape.iog.og[2].gid";
+connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_L3Shape.iog.og[2].gco"
 		;
-connectAttr "groupId62.id" "thumbJnt1_L3Shape.iog.og[1].gid";
-connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_L3Shape.iog.og[1].gco";
-connectAttr "groupId61.id" "thumbJnt1_L3Shape.ciog.cog[0].cgid";
+connectAttr "groupId83.id" "thumbJnt1_L3Shape.iog.og[3].gid";
+connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_L3Shape.iog.og[3].gco";
+connectAttr "groupId78.id" "thumbJnt1_L3Shape.ciog.cog[1].cgid";
 connectAttr "unitConversion12.o" "thumbJnt2_L3.rx";
 connectAttr "unitConversion9.o" "thumbJnt1_L2.rx";
-connectAttr "groupId57.id" "thumbJnt1_L2Shape.iog.og[0].gid";
-connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_L2Shape.iog.og[0].gco"
+connectAttr "groupId79.id" "thumbJnt1_L2Shape.iog.og[2].gid";
+connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_L2Shape.iog.og[2].gco"
 		;
-connectAttr "groupId59.id" "thumbJnt1_L2Shape.iog.og[1].gid";
-connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_L2Shape.iog.og[1].gco";
-connectAttr "groupId58.id" "thumbJnt1_L2Shape.ciog.cog[0].cgid";
+connectAttr "groupId84.id" "thumbJnt1_L2Shape.iog.og[3].gid";
+connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_L2Shape.iog.og[3].gco";
+connectAttr "groupId80.id" "thumbJnt1_L2Shape.ciog.cog[1].cgid";
 connectAttr "unitConversion10.o" "thumbJnt2_L2.rx";
 connectAttr "unitConversion7.o" "thumbJnt1_L1.rx";
-connectAttr "groupId54.id" "thumbJnt1_L1Shape.iog.og[0].gid";
-connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_L1Shape.iog.og[0].gco"
+connectAttr "groupId81.id" "thumbJnt1_L1Shape.iog.og[2].gid";
+connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_L1Shape.iog.og[2].gco"
 		;
-connectAttr "groupId56.id" "thumbJnt1_L1Shape.iog.og[1].gid";
-connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_L1Shape.iog.og[1].gco";
-connectAttr "groupId55.id" "thumbJnt1_L1Shape.ciog.cog[0].cgid";
+connectAttr "groupId85.id" "thumbJnt1_L1Shape.iog.og[3].gid";
+connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_L1Shape.iog.og[3].gco";
+connectAttr "groupId82.id" "thumbJnt1_L1Shape.ciog.cog[1].cgid";
 connectAttr "unitConversion8.o" "thumbJnt2_L1.rx";
 connectAttr "palm_L.ro" "palm_L_orientConstraint1.cro";
 connectAttr "palm_L.pim" "palm_L_orientConstraint1.cpim";
@@ -37354,31 +37415,32 @@ connectAttr "groupId30.id" "palm_RShape.iog.og[2].gid";
 connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "palm_RShape.iog.og[2].gco"
 		;
 connectAttr "groupId32.id" "palm_RShape.iog.og[3].gid";
-connectAttr "PxrConstant1SG.mwc" "palm_RShape.iog.og[3].gco";
+connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "palm_RShape.iog.og[3].gco"
+		;
 connectAttr "groupId31.id" "palm_RShape.ciog.cog[1].cgid";
 connectAttr "unitConversion5.o" "thumbJnt1_R3.rx";
-connectAttr "groupId48.id" "thumbJnt1_R3Shape.iog.og[0].gid";
-connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_R3Shape.iog.og[0].gco"
+connectAttr "groupId70.id" "thumbJnt1_R3Shape.iog.og[2].gid";
+connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_R3Shape.iog.og[2].gco"
 		;
-connectAttr "groupId50.id" "thumbJnt1_R3Shape.iog.og[1].gid";
-connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_R3Shape.iog.og[1].gco";
-connectAttr "groupId49.id" "thumbJnt1_R3Shape.ciog.cog[0].cgid";
+connectAttr "groupId75.id" "thumbJnt1_R3Shape.iog.og[3].gid";
+connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_R3Shape.iog.og[3].gco";
+connectAttr "groupId71.id" "thumbJnt1_R3Shape.ciog.cog[1].cgid";
 connectAttr "unitConversion6.o" "thumbJnt2_R3.rx";
 connectAttr "unitConversion3.o" "thumbJnt1_R2.rx";
-connectAttr "groupId45.id" "thumbJnt1_R2Shape.iog.og[0].gid";
-connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_R2Shape.iog.og[0].gco"
+connectAttr "groupId72.id" "thumbJnt1_R2Shape.iog.og[2].gid";
+connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_R2Shape.iog.og[2].gco"
 		;
-connectAttr "groupId47.id" "thumbJnt1_R2Shape.iog.og[1].gid";
-connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_R2Shape.iog.og[1].gco";
-connectAttr "groupId46.id" "thumbJnt1_R2Shape.ciog.cog[0].cgid";
+connectAttr "groupId76.id" "thumbJnt1_R2Shape.iog.og[3].gid";
+connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_R2Shape.iog.og[3].gco";
+connectAttr "groupId73.id" "thumbJnt1_R2Shape.ciog.cog[1].cgid";
 connectAttr "unitConversion4.o" "thumbJnt2_R2.rx";
 connectAttr "unitConversion1.o" "thumbJnt1_R1.rx";
-connectAttr "groupId51.id" "thumbJnt1_R1Shape.iog.og[0].gid";
-connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_R1Shape.iog.og[0].gco"
+connectAttr "groupId68.id" "thumbJnt1_R1Shape.iog.og[2].gid";
+connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.mwc" "thumbJnt1_R1Shape.iog.og[2].gco"
 		;
-connectAttr "groupId53.id" "thumbJnt1_R1Shape.iog.og[1].gid";
-connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_R1Shape.iog.og[1].gco";
-connectAttr "groupId52.id" "thumbJnt1_R1Shape.ciog.cog[0].cgid";
+connectAttr "groupId74.id" "thumbJnt1_R1Shape.iog.og[3].gid";
+connectAttr "Plastic_BlueSG.mwc" "thumbJnt1_R1Shape.iog.og[3].gco";
+connectAttr "groupId69.id" "thumbJnt1_R1Shape.ciog.cog[1].cgid";
 connectAttr "unitConversion2.o" "thumbJnt2_R1.rx";
 connectAttr "palm_R.ro" "palm_R_orientConstraint1.cro";
 connectAttr "palm_R.pim" "palm_R_orientConstraint1.cpim";
@@ -37417,6 +37479,8 @@ connectAttr "groupId4.id" "headShape.iog.og[2].gid";
 connectAttr "PxrConstant1SG.mwc" "headShape.iog.og[2].gco";
 connectAttr "groupId5.id" "headShape.iog.og[3].gid";
 connectAttr "PxrDisney1SG.mwc" "headShape.iog.og[3].gco";
+connectAttr "groupId86.id" "headShape.iog.og[4].gid";
+connectAttr "Plastic_BlueSG.mwc" "headShape.iog.og[4].gco";
 connectAttr "groupId2.id" "headShape.ciog.cog[0].cgid";
 connectAttr "head.ro" "head_parentConstraint1.cro";
 connectAttr "head.pim" "head_parentConstraint1.cpim";
@@ -37449,31 +37513,11 @@ connectAttr "body_scaleConstraint1.w0" "body_scaleConstraint1.tg[0].tw";
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
 connectAttr "transformGeometry2.og" "transformGeometry3.ig";
 connectAttr "makeNurbCircle1.oc" "transformGeometry2.ig";
-connectAttr "Plastic_White.oc" "Plastic_Orange_Mat_Net:OrangePlasticSG.ss";
+connectAttr "Primary.oc" "Plastic_Orange_Mat_Net:OrangePlasticSG.ss";
 connectAttr "headShape.iog.og[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm" -na
 		;
-connectAttr "thumbJnt2_R1Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
-connectAttr "thumbJnt2_R2Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
-connectAttr "thumbJnt2_R3Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
-connectAttr "thumbJnt2_L1Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
-connectAttr "thumbJnt2_L2Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
-connectAttr "thumbJnt2_L3Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
-connectAttr "BottomSphereShape1.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
-connectAttr "BottomSphereShape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
 connectAttr "BodyShape.iog.og[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm" -na
 		;
-connectAttr "UpperToLowerConnect_LShape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
-connectAttr "UpperToLowerConnect_RShape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
 connectAttr "UpperArm_RShape.iog.og[2]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
 connectAttr "UpperArm_RShape.ciog.cog[1]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
@@ -37481,8 +37525,6 @@ connectAttr "UpperArm_RShape.ciog.cog[1]" "Plastic_Orange_Mat_Net:OrangePlasticS
 connectAttr "LowerArm_RShape.iog.og[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
 connectAttr "LowerArm_RShape.ciog.cog[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
-connectAttr "palm_RShape.iog.og[2]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
 connectAttr "palm_RShape.ciog.cog[1]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
@@ -37494,47 +37536,53 @@ connectAttr "LowerArm_LShape.iog.og[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.
 		 -na;
 connectAttr "LowerArm_LShape.ciog.cog[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "palm_LShape.iog.og[3]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
-		 -na;
 connectAttr "palm_LShape.ciog.cog[2]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
 connectAttr "BodyShape.iog.og[3]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm" -na
 		;
-connectAttr "|Main|Mesh|Body|UpperArm_L|LowerArm_L|palm_L|thumbJnt1_L3|thumbJnt2_L3|thumbPad|thumbPadShape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt2_L3Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "|Main|Mesh|Body|UpperArm_L|LowerArm_L|palm_L|thumbJnt1_L2|thumbJnt2_L2|thumbPad|thumbPadShape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt2_L2Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "|Main|Mesh|Body|UpperArm_L|LowerArm_L|palm_L|thumbJnt1_L1|thumbJnt2_L1|thumbPad|thumbPadShape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt2_L1Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "|Main|Mesh|Body|UpperArm_R|LowerArm_R|palm_R|thumbJnt1_R1|thumbJnt2_R1|thumbPad|thumbPadShape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt2_R1Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "|Main|Mesh|Body|UpperArm_R|LowerArm_R|palm_R|thumbJnt1_R2|thumbJnt2_R2|thumbPad|thumbPadShape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt2_R3Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "|Main|Mesh|Body|UpperArm_R|LowerArm_R|palm_R|thumbJnt1_R3|thumbJnt2_R3|thumbPad|thumbPadShape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt2_R2Shape.iog" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_R2Shape.iog.og[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "palm_RShape.iog.og[2]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_R2Shape.ciog.cog[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "palm_RShape.iog.og[3]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_R3Shape.iog.og[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt1_R1Shape.iog.og[2]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_R3Shape.ciog.cog[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt1_R1Shape.ciog.cog[1]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_R1Shape.iog.og[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt1_R3Shape.iog.og[2]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_R1Shape.ciog.cog[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt1_R3Shape.ciog.cog[1]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_L1Shape.iog.og[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt1_R2Shape.iog.og[2]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_L1Shape.ciog.cog[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt1_R2Shape.ciog.cog[1]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_L2Shape.iog.og[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "palm_LShape.iog.og[3]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_L2Shape.ciog.cog[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "palm_LShape.iog.og[4]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_L3Shape.iog.og[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt1_L3Shape.iog.og[2]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
-connectAttr "thumbJnt1_L3Shape.ciog.cog[0]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+connectAttr "thumbJnt1_L3Shape.ciog.cog[1]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+		 -na;
+connectAttr "thumbJnt1_L2Shape.iog.og[2]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+		 -na;
+connectAttr "thumbJnt1_L2Shape.ciog.cog[1]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+		 -na;
+connectAttr "thumbJnt1_L1Shape.iog.og[2]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
+		 -na;
+connectAttr "thumbJnt1_L1Shape.ciog.cog[1]" "Plastic_Orange_Mat_Net:OrangePlasticSG.dsm"
 		 -na;
 connectAttr "groupId11.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
 connectAttr "groupId24.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
@@ -37549,24 +37597,27 @@ connectAttr "groupId36.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
 connectAttr "groupId37.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
 connectAttr "groupId39.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
 connectAttr "groupId40.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId45.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId46.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId48.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId49.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId51.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId52.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId54.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId55.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId57.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId58.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId60.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
-connectAttr "groupId61.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId68.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId69.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId70.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId71.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId72.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId73.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId77.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId78.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId79.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId80.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId81.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
+connectAttr "groupId82.msg" "Plastic_Orange_Mat_Net:OrangePlasticSG.gn" -na;
 connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.msg" "Plastic_Orange_Mat_Net:Fridge_Back_Light_Ref:materialInfo1.sg"
 		;
-connectAttr "Plastic_White.msg" "Plastic_Orange_Mat_Net:Fridge_Back_Light_Ref:materialInfo1.m"
+connectAttr "Primary.msg" "Plastic_Orange_Mat_Net:Fridge_Back_Light_Ref:materialInfo1.m"
 		;
-connectAttr "Plastic_White.msg" "Plastic_Orange_Mat_Net:Fridge_Back_Light_Ref:materialInfo1.t"
+connectAttr "Primary.msg" "Plastic_Orange_Mat_Net:Fridge_Back_Light_Ref:materialInfo1.t"
 		 -na;
+connectAttr "GlowScale.o" "Primary.incandescence";
+connectAttr "BlueColor.oc" "Primary.diffuseColor";
+connectAttr "BlueColor.oc" "GlowScale.i1";
 connectAttr "ChestLight.oc" "ChestLightSG.ss";
 connectAttr "HeartShape.iog.og[1]" "ChestLightSG.dsm" -na;
 connectAttr "BodyShape.iog.og[1]" "ChestLightSG.dsm" -na;
@@ -37574,19 +37625,32 @@ connectAttr "groupId12.msg" "ChestLightSG.gn" -na;
 connectAttr "ChestLightSG.msg" "materialInfo4.sg";
 connectAttr "ChestLight.msg" "materialInfo4.m";
 connectAttr "ChestLight.msg" "materialInfo4.t" -na;
-connectAttr "Plastic_Blue.oc" "Plastic_BlueSG.ss";
+connectAttr "Secondary.oc" "Plastic_BlueSG.ss";
 connectAttr "UpperArm_RShape.iog.og[3]" "Plastic_BlueSG.dsm" -na;
 connectAttr "LowerArm_RShape.iog.og[1]" "Plastic_BlueSG.dsm" -na;
 connectAttr "UpperArm_LShape.iog.og[1]" "Plastic_BlueSG.dsm" -na;
 connectAttr "LowerArm_LShape.iog.og[1]" "Plastic_BlueSG.dsm" -na;
 connectAttr "BodyShape.iog.og[4]" "Plastic_BlueSG.dsm" -na;
 connectAttr "BodyShape.iog.og[2]" "Plastic_BlueSG.dsm" -na;
-connectAttr "thumbJnt1_R2Shape.iog.og[1]" "Plastic_BlueSG.dsm" -na;
-connectAttr "thumbJnt1_R3Shape.iog.og[1]" "Plastic_BlueSG.dsm" -na;
-connectAttr "thumbJnt1_R1Shape.iog.og[1]" "Plastic_BlueSG.dsm" -na;
-connectAttr "thumbJnt1_L1Shape.iog.og[1]" "Plastic_BlueSG.dsm" -na;
-connectAttr "thumbJnt1_L2Shape.iog.og[1]" "Plastic_BlueSG.dsm" -na;
-connectAttr "thumbJnt1_L3Shape.iog.og[1]" "Plastic_BlueSG.dsm" -na;
+connectAttr "|Main|Mesh|Body|UpperArm_R|LowerArm_R|palm_R|thumbJnt1_R3|thumbJnt2_R3|thumbPad|thumbPadShape.iog" "Plastic_BlueSG.dsm"
+		 -na;
+connectAttr "|Main|Mesh|Body|UpperArm_R|LowerArm_R|palm_R|thumbJnt1_R2|thumbJnt2_R2|thumbPad|thumbPadShape.iog" "Plastic_BlueSG.dsm"
+		 -na;
+connectAttr "|Main|Mesh|Body|UpperArm_R|LowerArm_R|palm_R|thumbJnt1_R1|thumbJnt2_R1|thumbPad|thumbPadShape.iog" "Plastic_BlueSG.dsm"
+		 -na;
+connectAttr "|Main|Mesh|Body|UpperArm_L|LowerArm_L|palm_L|thumbJnt1_L1|thumbJnt2_L1|thumbPad|thumbPadShape.iog" "Plastic_BlueSG.dsm"
+		 -na;
+connectAttr "|Main|Mesh|Body|UpperArm_L|LowerArm_L|palm_L|thumbJnt1_L3|thumbJnt2_L3|thumbPad|thumbPadShape.iog" "Plastic_BlueSG.dsm"
+		 -na;
+connectAttr "|Main|Mesh|Body|UpperArm_L|LowerArm_L|palm_L|thumbJnt1_L2|thumbJnt2_L2|thumbPad|thumbPadShape.iog" "Plastic_BlueSG.dsm"
+		 -na;
+connectAttr "thumbJnt1_R1Shape.iog.og[3]" "Plastic_BlueSG.dsm" -na;
+connectAttr "thumbJnt1_R3Shape.iog.og[3]" "Plastic_BlueSG.dsm" -na;
+connectAttr "thumbJnt1_R2Shape.iog.og[3]" "Plastic_BlueSG.dsm" -na;
+connectAttr "thumbJnt1_L3Shape.iog.og[3]" "Plastic_BlueSG.dsm" -na;
+connectAttr "thumbJnt1_L2Shape.iog.og[3]" "Plastic_BlueSG.dsm" -na;
+connectAttr "thumbJnt1_L1Shape.iog.og[3]" "Plastic_BlueSG.dsm" -na;
+connectAttr "headShape.iog.og[4]" "Plastic_BlueSG.dsm" -na;
 connectAttr "groupId26.msg" "Plastic_BlueSG.gn" -na;
 connectAttr "groupId29.msg" "Plastic_BlueSG.gn" -na;
 connectAttr "groupId35.msg" "Plastic_BlueSG.gn" -na;
@@ -37594,15 +37658,19 @@ connectAttr "groupId38.msg" "Plastic_BlueSG.gn" -na;
 connectAttr "groupId42.msg" "Plastic_BlueSG.gn" -na;
 connectAttr "groupId43.msg" "Plastic_BlueSG.gn" -na;
 connectAttr "groupId44.msg" "Plastic_BlueSG.gn" -na;
-connectAttr "groupId47.msg" "Plastic_BlueSG.gn" -na;
-connectAttr "groupId50.msg" "Plastic_BlueSG.gn" -na;
-connectAttr "groupId53.msg" "Plastic_BlueSG.gn" -na;
-connectAttr "groupId56.msg" "Plastic_BlueSG.gn" -na;
-connectAttr "groupId59.msg" "Plastic_BlueSG.gn" -na;
-connectAttr "groupId62.msg" "Plastic_BlueSG.gn" -na;
+connectAttr "groupId74.msg" "Plastic_BlueSG.gn" -na;
+connectAttr "groupId75.msg" "Plastic_BlueSG.gn" -na;
+connectAttr "groupId76.msg" "Plastic_BlueSG.gn" -na;
+connectAttr "groupId83.msg" "Plastic_BlueSG.gn" -na;
+connectAttr "groupId84.msg" "Plastic_BlueSG.gn" -na;
+connectAttr "groupId85.msg" "Plastic_BlueSG.gn" -na;
+connectAttr "groupId86.msg" "Plastic_BlueSG.gn" -na;
 connectAttr "Plastic_BlueSG.msg" "materialInfo5.sg";
-connectAttr "Plastic_Blue.msg" "materialInfo5.m";
-connectAttr "Plastic_Blue.msg" "materialInfo5.t" -na;
+connectAttr "Secondary.msg" "materialInfo5.m";
+connectAttr "Secondary.msg" "materialInfo5.t" -na;
+connectAttr "GlowScale1.o" "Secondary.incandescence";
+connectAttr "WhiteColor.oc" "Secondary.diffuseColor";
+connectAttr "WhiteColor.oc" "GlowScale1.i1";
 connectAttr "AluminumGrey.oc" "AluminumGreySG.ss";
 connectAttr "groupId3.msg" "AluminumGreySG.gn" -na;
 connectAttr "headShape.iog.og[1]" "AluminumGreySG.dsm" -na;
@@ -37610,17 +37678,17 @@ connectAttr "HeartShape.iog.og[0]" "AluminumGreySG.dsm" -na;
 connectAttr "AluminumGreySG.msg" "materialInfo2.sg";
 connectAttr "AluminumGrey.msg" "materialInfo2.m";
 connectAttr "AluminumGrey.msg" "materialInfo2.t" -na;
-connectAttr "EarLights.oc" "PxrConstant1SG.ss";
-connectAttr "headShape.iog.og[2]" "PxrConstant1SG.dsm" -na;
-connectAttr "palm_RShape.iog.og[3]" "PxrConstant1SG.dsm" -na;
-connectAttr "palm_LShape.iog.og[4]" "PxrConstant1SG.dsm" -na;
-connectAttr "groupId4.msg" "PxrConstant1SG.gn" -na;
-connectAttr "groupId10.msg" "PxrConstant1SG.gn" -na;
-connectAttr "groupId32.msg" "PxrConstant1SG.gn" -na;
-connectAttr "groupId41.msg" "PxrConstant1SG.gn" -na;
-connectAttr "PxrConstant1SG.msg" "materialInfo3.sg";
-connectAttr "EarLights.msg" "materialInfo3.m";
-connectAttr "EarLights.msg" "materialInfo3.t" -na;
+connectAttr "PxrLayerSurface1SG.msg" "materialInfo8.sg";
+connectAttr "GlassGlow.msg" "materialInfo8.m";
+connectAttr "GlassGlow.msg" "materialInfo8.t" -na;
+connectAttr "GlassGlow.oc" "PxrLayerSurface1SG.ss";
+connectAttr "BottomSphereShape1.iog" "PxrLayerSurface1SG.dsm" -na;
+connectAttr "UpperToLowerConnect_LShape.iog" "PxrLayerSurface1SG.dsm" -na;
+connectAttr "UpperToLowerConnect_RShape.iog" "PxrLayerSurface1SG.dsm" -na;
+connectAttr "BottomSphereShape.iog" "PxrLayerSurface1SG.dsm" -na;
+connectAttr "PxrLayerMixer1.pxrMaterialOut" "GlassGlow.inputMaterial";
+connectAttr "Base.pxrMaterialOut" "PxrLayerMixer1.baselayer";
+connectAttr "Glow.pxrMaterialOut" "PxrLayerMixer1.layer1";
 connectAttr "Hand_L_Ctrl.Finger_3_Roll" "unitConversion11.i";
 connectAttr "Hand_L_Ctrl.Finger_3_Roll" "unitConversion12.i";
 connectAttr "Hand_L_Ctrl.Finger_2_Roll" "unitConversion9.i";
@@ -37633,6 +37701,15 @@ connectAttr "Hand_R_Ctrl.Finger_2_Roll" "unitConversion3.i";
 connectAttr "Hand_R_Ctrl.Finger_2_Roll" "unitConversion4.i";
 connectAttr "Hand_R_Ctrl.Finger_1_Roll" "unitConversion1.i";
 connectAttr "Hand_R_Ctrl.Finger_1_Roll" "unitConversion2.i";
+connectAttr "EarLights.oc" "PxrConstant1SG.ss";
+connectAttr "headShape.iog.og[2]" "PxrConstant1SG.dsm" -na;
+connectAttr "groupId4.msg" "PxrConstant1SG.gn" -na;
+connectAttr "groupId10.msg" "PxrConstant1SG.gn" -na;
+connectAttr "groupId32.msg" "PxrConstant1SG.gn" -na;
+connectAttr "groupId41.msg" "PxrConstant1SG.gn" -na;
+connectAttr "PxrConstant1SG.msg" "materialInfo3.sg";
+connectAttr "EarLights.msg" "materialInfo3.m";
+connectAttr "EarLights.msg" "materialInfo3.t" -na;
 connectAttr "Face_Mat.oc" "PxrDisney1SG.ss";
 connectAttr "FaceShape.iog" "PxrDisney1SG.dsm" -na;
 connectAttr "headShape.iog.og[3]" "PxrDisney1SG.dsm" -na;
@@ -37677,6 +37754,7 @@ relationship "link" ":lightLinker1" "AluminumGreySG.message" ":defaultLightSet.m
 relationship "link" ":lightLinker1" "PxrConstant1SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "ChestLightSG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "Plastic_BlueSG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "PxrLayerSurface1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "PxrDisney1SG.message" ":defaultLightSet.message";
@@ -37685,6 +37763,7 @@ relationship "shadowLink" ":lightLinker1" "AluminumGreySG.message" ":defaultLigh
 relationship "shadowLink" ":lightLinker1" "PxrConstant1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "ChestLightSG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "Plastic_BlueSG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "PxrLayerSurface1SG.message" ":defaultLightSet.message";
 connectAttr "PxrDisney1SG.pa" ":renderPartition.st" -na;
 connectAttr "Plastic_Orange_Mat_Net:OrangePlasticSG.pa" ":renderPartition.st" -na
 		;
@@ -37692,19 +37771,28 @@ connectAttr "AluminumGreySG.pa" ":renderPartition.st" -na;
 connectAttr "PxrConstant1SG.pa" ":renderPartition.st" -na;
 connectAttr "ChestLightSG.pa" ":renderPartition.st" -na;
 connectAttr "Plastic_BlueSG.pa" ":renderPartition.st" -na;
+connectAttr "PxrLayerSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "Face_Mat.msg" ":defaultShaderList1.s" -na;
 connectAttr "AluminumGrey.msg" ":defaultShaderList1.s" -na;
-connectAttr "Plastic_White.msg" ":defaultShaderList1.s" -na;
+connectAttr "Primary.msg" ":defaultShaderList1.s" -na;
 connectAttr "EarLights.msg" ":defaultShaderList1.s" -na;
 connectAttr "ChestLight.msg" ":defaultShaderList1.s" -na;
-connectAttr "Plastic_Blue.msg" ":defaultShaderList1.s" -na;
+connectAttr "Secondary.msg" ":defaultShaderList1.s" -na;
+connectAttr "GlassGlow.msg" ":defaultShaderList1.s" -na;
 connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "WhiteColor.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "GlowScale.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "BlueColor.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "GlowScale1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "ChestLightGlowShape.ltd" ":lightList1.l" -na;
 connectAttr "UpLightShape.ltd" ":lightList1.l" -na;
 connectAttr "UpLight1Shape.ltd" ":lightList1.l" -na;
 connectAttr "file1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "PxrLayerMixer1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Base.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Glow.msg" ":defaultTextureList1.tx" -na;
 connectAttr "headShape.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "HeartShape.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "groupId1.msg" ":initialShadingGroup.gn" -na;
