@@ -1,8 +1,8 @@
-//Maya ASCII 2017 scene
+//Maya ASCII 2017ff04 scene
 //Name: Stuff_Ad_Ref.ma
-//Last modified: Sat, Apr 29, 2017 04:34:41 AM
+//Last modified: Mon, May 01, 2017 10:46:05 PM
 //Codeset: 1252
-requires maya "2017";
+requires maya "2017ff04";
 requires -nodeType "floatConstant" "lookdevKit" "1.0";
 requires -nodeType "PxrLMMetal" -nodeType "PxrLayerSurface" -nodeType "PxrLayerMixer"
 		 -nodeType "PxrLMGlass" -nodeType "PxrFlakes" -nodeType "PxrLMLayer" -nodeType "PxrLMPlastic"
@@ -12,8 +12,8 @@ currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2017";
 fileInfo "version" "2017";
-fileInfo "cutIdentifier" "201606150345-997974";
-fileInfo "osv" "Microsoft Windows 8 Business Edition, 64-bit  (Build 9200)\n";
+fileInfo "cutIdentifier" "201702071345-1015190";
+fileInfo "osv" "Microsoft Windows 8 Home Premium Edition, 64-bit  (Build 9200)\n";
 fileInfo "license" "student";
 createNode transform -n "Main";
 	rename -uid "180888E7-4DFE-AA87-9B84-07A4137443B3";
@@ -11461,10 +11461,12 @@ createNode mesh -n "Wing_Shape3" -p "Wing_3";
 	setAttr ".dsm" 2;
 createNode transform -n "HOLOGRAM" -p "Mesh";
 	rename -uid "969EAEA7-4A6E-0BD0-E756-51AAA6164C28";
+	setAttr ".rp" -type "double3" -0.15718877313352042 0 0 ;
+	setAttr ".sp" -type "double3" -0.15718877313352042 0 0 ;
 createNode transform -n "HologramAdScreen" -p "HOLOGRAM";
 	rename -uid "F7DE1ABA-496A-73A8-CB65-2D9E04AC573E";
-	setAttr ".rp" -type "double3" -5 0 0 ;
-	setAttr ".sp" -type "double3" -5 0 0 ;
+	setAttr ".rp" -type "double3" -4.1571887731335204 0 0 ;
+	setAttr ".sp" -type "double3" -4.1571887731335204 0 0 ;
 createNode mesh -n "HologramAdScreenShape" -p "HologramAdScreen";
 	rename -uid "637639C3-4EA9-69C9-D6D7-D3A9185E7BAA";
 	setAttr -k off ".v";
@@ -11477,8 +11479,8 @@ createNode mesh -n "HologramAdScreenShape" -p "HologramAdScreen";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt[0:3]" -type "float3"  0 -5 0 -10 5 0 -1.7763568e-015 
-		-5 0 -10 5 0;
+	setAttr -s 4 ".pt[0:3]" -type "float3"  0.84281123 -3.29 -1 -9.1571884 
+		3.29 -1 0.84281123 -3.29 1 -9.1571884 3.29 1;
 	setAttr -s 4 ".vt[0:3]"  -5 -1.110223e-015 5 5 -1.110223e-015 5 -5 1.110223e-015 -5
 		 5 1.110223e-015 -5;
 	setAttr -s 4 ".ed[0:3]"  0 1 0 0 2 0 1 3 0 2 3 0;
@@ -11491,8 +11493,8 @@ createNode mesh -n "HologramAdScreenShape" -p "HologramAdScreen";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "HologramProjectorCone" -p "HOLOGRAM";
 	rename -uid "43A05758-4066-248C-530F-B0A8E256ED40";
-	setAttr ".rp" -type "double3" -3 0 0 ;
-	setAttr ".sp" -type "double3" -3 0 0 ;
+	setAttr ".rp" -type "double3" -2.5571887731335208 0 0 ;
+	setAttr ".sp" -type "double3" -2.5571887731335208 0 0 ;
 createNode mesh -n "HologramProjectorConeShape" -p "HologramProjectorCone";
 	rename -uid "6BBF7F58-4C56-3CB5-443C-56B41D18DCBD";
 	setAttr -k off ".v";
@@ -11506,9 +11508,9 @@ createNode mesh -n "HologramProjectorConeShape" -p "HologramProjectorCone";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 5 ".pt[0:4]" -type "float3"  -5.0000005 6.9999995 2.0710676 
-		2.0710678 7 5 -5 -3.0000002 -2.071068 -12.071068 -3.0000002 -5 -0.87867975 -2.1213202 
-		0;
+	setAttr -s 5 ".pt[0:4]" -type "float3"  -4.1571894 5.29 3.0710676 
+		2.9138789 5.29 4 -4.1571889 -1.2900002 -3.071068 -11.228256 -1.2900002 -4 -0.86013258 
+		-2.1213202 0;
 	setAttr -s 5 ".vt[0:4]"  4.3714579e-007 -2 -7.07106781 -7.07106781 -2 -3.1129878e-007
 		 1.7217616e-007 -2 7.07106781 7.07106781 -2 3.5762787e-007 0 2.12132025 0;
 	setAttr -s 8 ".ed[0:7]"  0 1 0 1 2 0 2 3 0 3 0 0 0 4 0 1 4 0 2 4 0
@@ -11564,13 +11566,6 @@ createNode nurbsCurve -n "Expand_CtrlShape" -p "Expand_Ctrl";
 		1.3364923548949681 0 -0.44549745163165605
 		0.44549745163165611 0 -0.44549745163165605
 		;
-createNode partition -n "mtorPartition";
-	rename -uid "9A9BE777-C546-F0D8-00C6-158534CE91DB";
-	addAttr -s false -ci true -sn "rgcnx" -ln "rgcnx" -at "message";
-	addAttr -ci true -sn "sd" -ln "slimData" -dt "string";
-	addAttr -ci true -sn "sr" -ln "slimRIB" -dt "string";
-	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
-	setAttr ".sr" -type "string" "";
 createNode groupId -n "groupId115";
 	rename -uid "2F6EEC51-41CA-48F1-21D2-5487EC9739B5";
 	setAttr ".ihi" 0;
@@ -11759,7 +11754,7 @@ createNode multiplyDivide -n "Hologram_Revised_Net1:multiplyDivide4";
 	rename -uid "656B5C31-46EA-EDC9-6881-B5B91BD5D3D0";
 createNode file -n "Hologram_Revised_Net1:file5";
 	rename -uid "77A9C8D2-4386-5148-A369-FB81EC457DF3";
-	setAttr ".ftn" -type "string" "E:/Maya/AggressiveAdvertising/aggressive_advertising//sourceimages/Ads/Revised_Ads/Stuff_Ad.png";
+	setAttr ".ftn" -type "string" "C:/Users/eugen/OneDrive/Documents/maya/projects/aggressive_advertising//sourceimages/Ads/Revised_Ads/Stuff_Ad.png";
 	setAttr ".cs" -type "string" "sRGB";
 createNode place2dTexture -n "Hologram_Revised_Net1:place2dTexture7";
 	rename -uid "A4E34E67-4845-CDB0-A640-20B13FF30A03";
@@ -11833,7 +11828,7 @@ createNode multiplyDivide -n "multiplyDivide4";
 	rename -uid "D386FFEF-4460-73F6-7B8A-1DB1371E2231";
 createNode file -n "file5";
 	rename -uid "015618E7-4B90-8C61-C5AC-0396800BC81E";
-	setAttr ".ftn" -type "string" "E:/Maya/AggressiveAdvertising/aggressive_advertising//scenes/Stuff_Store/Images/ProjectionCone2.png";
+	setAttr ".ftn" -type "string" "C:/Users/eugen/OneDrive/Documents/maya/projects/aggressive_advertising//scenes/Stuff_Store/Images/ProjectionCone2.png";
 	setAttr ".cs" -type "string" "sRGB";
 createNode place2dTexture -n "place2dTexture7";
 	rename -uid "B0B89C27-4F9D-EFAD-788C-E6AAD7A47F4F";
@@ -11866,8 +11861,8 @@ createNode remapValue -n "remapMask2";
 	setAttr ".cl[1].clc" -type "float3" 1 1 1 ;
 	setAttr ".cl[1].cli" 1;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "1C509469-48A4-4870-4599-888C2925E606";
-	setAttr -s 8 ".lnk";
+	rename -uid "4CFFA4E3-426C-9400-9CB2-229A53CF9964";
+	setAttr -s 6 ".lnk";
 	setAttr -s 17 ".ign";
 	setAttr -s 7 ".slnk";
 select -ne :time1;
@@ -11875,8 +11870,9 @@ select -ne :time1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr ".o" 49;
-	setAttr ".unw" 49;
+	setAttr ".o" 1;
+	setAttr ".unw" 1;
+select -ne :sequenceManager1;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
@@ -12016,14 +12012,6 @@ select -ne :hardwareRenderGlobals;
 	setAttr -k on ".hwdp";
 	setAttr -k on ".hwql";
 	setAttr -k on ".hwfr";
-select -ne :ikSystem;
-	setAttr -k on ".cch";
-	setAttr -k on ".ihi";
-	setAttr -k on ".nds";
-	setAttr -k on ".bnm";
-	setAttr -av -k on ".gsn";
-	setAttr -k on ".gsv";
-	setAttr -s 4 ".sol";
 connectAttr "groupId115.id" "BodyShape.iog.og[0].gid";
 connectAttr "PxrLMPlastic1SG.mwc" "BodyShape.iog.og[0].gco";
 connectAttr "groupId116.id" "BodyShape.iog.og[2].gid";
@@ -12102,7 +12090,6 @@ connectAttr "groupId125.id" "Wing_Shape3.iog.og[1].gid";
 connectAttr "PxrLMMetal1SG.mwc" "Wing_Shape3.iog.og[1].gco";
 connectAttr "groupId126.id" "Wing_Shape3.iog.og[2].gid";
 connectAttr "PxrLMPlastic1SG.mwc" "Wing_Shape3.iog.og[2].gco";
-connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
 connectAttr "White_Plastic_Mat.oc" "PxrLMPlastic1SG.ss";
 connectAttr "Wing_Shape0.iog.og[2]" "PxrLMPlastic1SG.dsm" -na;
 connectAttr "BodyShape.iog.og[0]" "PxrLMPlastic1SG.dsm" -na;
