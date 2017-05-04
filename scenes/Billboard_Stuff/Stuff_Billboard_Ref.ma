@@ -1,18 +1,17 @@
 //Maya ASCII 2017 scene
 //Name: Stuff_Billboard_Ref.ma
-//Last modified: Sat, Apr 29, 2017 05:16:18 AM
+//Last modified: Wed, May 03, 2017 10:36:08 PM
 //Codeset: 1252
 requires maya "2017";
 requires -nodeType "floatConstant" "lookdevKit" "1.0";
-requires -nodeType "PxrLMMetal" -nodeType "PxrLayerSurface" -nodeType "PxrLayerMixer"
-		 -nodeType "PxrSurface" -nodeType "PxrLayer" "RenderMan_for_Maya" "21.3";
+requires -nodeType "PxrLMMetal" -nodeType "PxrSurface" "RenderMan_for_Maya" "21.3";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2017";
 fileInfo "version" "2017";
 fileInfo "cutIdentifier" "201606150345-997974";
-fileInfo "osv" "Microsoft Windows 8 Business Edition, 64-bit  (Build 9200)\n";
+fileInfo "osv" "Microsoft Windows 8 Home Premium Edition, 64-bit  (Build 9200)\n";
 fileInfo "license" "student";
 createNode transform -n "Main";
 	rename -uid "98CD440E-457E-7FD4-630E-79968663DADC";
@@ -8436,54 +8435,15 @@ createNode polyPlane -n "polyPlane1";
 	setAttr ".sw" 8;
 	setAttr ".sh" 1;
 	setAttr ".cuv" 2;
-createNode materialInfo -n "materialInfo6";
-	rename -uid "16D589BF-4BF2-AB42-6036-128567AD44C7";
-createNode shadingEngine -n "Hologram_Revised_Net1:Holo_Big_SignSG";
-	rename -uid "37F1CE25-44D6-6645-B28F-80864817D5DC";
+createNode materialInfo -n "materialInfo5";
+	rename -uid "1C36BE9D-4E0C-62B3-F7E7-04ADE5637C17";
+createNode shadingEngine -n "PxrSurface_HoloBB_SG";
+	rename -uid "7AC9FA11-45E6-8507-31EA-6BB9039F2862";
 	setAttr ".ihi" 0;
-	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
-createNode PxrLayerSurface -n "Hologram_Billboard";
-	rename -uid "2B91B91E-40FF-6758-94BF-9A9FDB61F010";
-	setAttr ".thinGlass" yes;
-createNode PxrLayerMixer -n "Hologram_Revised_Net1:PxrLayerMixer3";
-	rename -uid "8D047524-4648-C2DA-2EF6-52BDDC27F541";
-createNode PxrLayer -n "Hologram_Revised_Net1:Base3";
-	rename -uid "9FC2EACF-44B8-6013-D6E1-8285113868DB";
-	setAttr ".enableDiffuse" no;
-	setAttr ".enableRR" yes;
-	setAttr ".rrRefractionGain" 1;
-	setAttr ".rrRoughness" 0;
-	setAttr ".rrIor" 1;
-	setAttr ".glowColor" -type "float3" 0 0 0 ;
-createNode PxrLayer -n "Hologram_Revised_Net1:Glow2";
-	rename -uid "376B8AB3-4735-8E10-248D-2BA2BC5122C3";
-	setAttr ".enableDiffuse" no;
-	setAttr ".rrRoughness" 0;
-	setAttr ".rrIor" 0;
-	setAttr ".enableGlow" yes;
-createNode multiplyDivide -n "Hologram_Revised_Net1:glow_multiply2";
-	rename -uid "F9D90285-40D2-E7FC-38A5-D3B74AAEF27A";
-	setAttr ".i2" -type "float3" 2 1 1 ;
-createNode remapValue -n "Hologram_Revised_Net1:Remap_Glow_Gain2";
-	rename -uid "F9B59E9B-43C1-AD34-5967-C8A2B7076FE9";
-	setAttr -s 3 ".vl[0:2]"  0 0 1 1 1 3 0.09565217 0.81999999 
-		3;
-	setAttr -s 2 ".cl";
-	setAttr ".cl[0].cli" 1;
-	setAttr ".cl[1].clp" 1;
-	setAttr ".cl[1].clc" -type "float3" 1 1 1 ;
-	setAttr ".cl[1].cli" 1;
-createNode rgbToHsv -n "Hologram_Revised_Net1:rgbToHsv3";
-	rename -uid "7BA13782-414B-524F-0126-BBB6811F3B9C";
-createNode multiplyDivide -n "Hologram_Revised_Net1:multiplyDivide4";
-	rename -uid "271CC310-4F0F-CFB1-9798-C488F7F609D2";
-createNode file -n "Hologram_Revised_Net1:file5";
-	rename -uid "B7D92006-4077-1440-F47E-86B8F64CC813";
-	setAttr ".ftn" -type "string" "E:/Maya/AggressiveAdvertising/aggressive_advertising//sourceimages/Ads/Stuff_Billboard.jpg";
-	setAttr ".cs" -type "string" "sRGB";
-createNode place2dTexture -n "Hologram_Revised_Net1:place2dTexture7";
-	rename -uid "59CD352A-4690-D105-3A41-76AD5BF1E2E0";
+createNode PxrSurface -n "BillBoardHologram";
+	rename -uid "CBD2A045-45DA-E0B9-0113-B793819B0D57";
+	setAttr ".diffuseColor" -type "float3" 0.14606741 0.14606741 0.14606741 ;
 createNode grid -n "Hologram_Revised_Net1:grid5";
 	rename -uid "A407B264-4EE0-1C69-672E-E6AAAB930721";
 	setAttr ".fc" -type "float3" 1 1 1 ;
@@ -8500,20 +8460,31 @@ createNode animCurveTU -n "Hologram_Revised_Net1:OffsetV_inFloat";
 	setAttr ".tan" 9;
 	setAttr -s 2 ".ktv[0:1]"  1 0 49 -0.98000001907348633;
 	setAttr ".pst" 1;
-createNode multiplyDivide -n "Hologram_Revised_Net1:mask_multiply2";
-	rename -uid "7A1C48AB-4E3C-F895-EDBC-758E80F1D115";
-createNode remapValue -n "Hologram_Revised_Net1:remapMask2";
-	rename -uid "355BE277-48F5-86B0-9D01-20815AA8BECE";
-	setAttr -s 3 ".vl[0:2]"  0 0 1 1 1 1 0.09565217 0.77999997 
+createNode multiplyDivide -n "Hologram_Revised_Net1:glow_multiply2";
+	rename -uid "F9D90285-40D2-E7FC-38A5-D3B74AAEF27A";
+	setAttr ".i2" -type "float3" 1.25 1 1 ;
+createNode remapValue -n "Hologram_Revised_Net1:Remap_Glow_Gain2";
+	rename -uid "F9B59E9B-43C1-AD34-5967-C8A2B7076FE9";
+	setAttr -s 3 ".vl[0:2]"  0 0 1 1 1 3 0.09565217 0.81999999 
 		3;
 	setAttr -s 2 ".cl";
 	setAttr ".cl[0].cli" 1;
 	setAttr ".cl[1].clp" 1;
 	setAttr ".cl[1].clc" -type "float3" 1 1 1 ;
 	setAttr ".cl[1].cli" 1;
+createNode rgbToHsv -n "Hologram_Revised_Net1:rgbToHsv3";
+	rename -uid "7BA13782-414B-524F-0126-BBB6811F3B9C";
+createNode multiplyDivide -n "Hologram_Revised_Net1:multiplyDivide4";
+	rename -uid "271CC310-4F0F-CFB1-9798-C488F7F609D2";
+createNode file -n "Hologram_Revised_Net1:file5";
+	rename -uid "B7D92006-4077-1440-F47E-86B8F64CC813";
+	setAttr ".ftn" -type "string" "D:/Libaries/Documents/Spring2017/UCBUGG/AggressiveAdvertsing/aggressive_advertising//sourceimages/Ads/Stuff_Billboard.jpg";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "Hologram_Revised_Net1:place2dTexture7";
+	rename -uid "59CD352A-4690-D105-3A41-76AD5BF1E2E0";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "874A360C-4520-93B8-5AAA-AEA74A838F28";
-	setAttr -s 5 ".lnk";
+	rename -uid "A0FED77D-4B39-1A99-6B7F-36A09BFDD5B7";
+	setAttr -s 6 ".lnk";
 	setAttr -s 6 ".slnk";
 select -ne :time1;
 	setAttr -av -k on ".cch";
@@ -8558,7 +8529,7 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 9 ".u";
+	setAttr -s 7 ".u";
 select -ne :defaultRenderingList1;
 select -ne :lightList1;
 	setAttr -s 2 ".l";
@@ -8567,7 +8538,7 @@ select -ne :defaultTextureList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 5 ".tx";
+	setAttr -s 2 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -8678,23 +8649,21 @@ connectAttr "PxrLMMetal1.msg" "materialInfo1.m";
 connectAttr "PxrLMMetal1.msg" "materialInfo1.t" -na;
 connectAttr "PxrLMMetal1.oc" "PxrLMMetal1SG.ss";
 connectAttr "BaseShape.iog" "PxrLMMetal1SG.dsm" -na;
-connectAttr "Hologram_Revised_Net1:Holo_Big_SignSG.msg" "materialInfo6.sg";
-connectAttr "Hologram_Billboard.msg" "materialInfo6.m";
-connectAttr "Hologram_Revised_Net1:file5.msg" "materialInfo6.t" -na;
-connectAttr "Hologram_Billboard.oc" "Hologram_Revised_Net1:Holo_Big_SignSG.ss";
-connectAttr "HologramScreenShape.iog" "Hologram_Revised_Net1:Holo_Big_SignSG.dsm"
-		 -na;
-connectAttr "Hologram_Revised_Net1:PxrLayerMixer3.pxrMaterialOut" "Hologram_Billboard.inputMaterial"
+connectAttr "PxrSurface_HoloBB_SG.msg" "materialInfo5.sg";
+connectAttr "BillBoardHologram.msg" "materialInfo5.m";
+connectAttr "BillBoardHologram.msg" "materialInfo5.t" -na;
+connectAttr "BillBoardHologram.oc" "PxrSurface_HoloBB_SG.ss";
+connectAttr "HologramScreenShape.iog" "PxrSurface_HoloBB_SG.dsm" -na;
+connectAttr "Hologram_Revised_Net1:grid5.ocr" "BillBoardHologram.presence";
+connectAttr "Hologram_Revised_Net1:glow_multiply2.ox" "BillBoardHologram.glowGain"
 		;
-connectAttr "Hologram_Revised_Net1:Base3.pxrMaterialOut" "Hologram_Revised_Net1:PxrLayerMixer3.baselayer"
+connectAttr "Hologram_Revised_Net1:multiplyDivide4.o" "BillBoardHologram.glowColor"
 		;
-connectAttr "Hologram_Revised_Net1:Glow2.pxrMaterialOut" "Hologram_Revised_Net1:PxrLayerMixer3.layer1"
+connectAttr "Hologram_Revised_Net1:GRID_place2dtexture.o" "Hologram_Revised_Net1:grid5.uv"
 		;
-connectAttr "Hologram_Revised_Net1:mask_multiply2.ox" "Hologram_Revised_Net1:PxrLayerMixer3.layer1Mask"
+connectAttr "Hologram_Revised_Net1:OffsetV.of" "Hologram_Revised_Net1:GRID_place2dtexture.ofv"
 		;
-connectAttr "Hologram_Revised_Net1:glow_multiply2.ox" "Hologram_Revised_Net1:Glow2.glowGain"
-		;
-connectAttr "Hologram_Revised_Net1:multiplyDivide4.o" "Hologram_Revised_Net1:Glow2.glowColor"
+connectAttr "Hologram_Revised_Net1:OffsetV_inFloat.o" "Hologram_Revised_Net1:OffsetV._f"
 		;
 connectAttr "Hologram_Revised_Net1:Remap_Glow_Gain2.ov" "Hologram_Revised_Net1:glow_multiply2.i1x"
 		;
@@ -8746,16 +8715,6 @@ connectAttr "Hologram_Revised_Net1:place2dTexture7.o" "Hologram_Revised_Net1:fil
 		;
 connectAttr "Hologram_Revised_Net1:place2dTexture7.ofs" "Hologram_Revised_Net1:file5.fs"
 		;
-connectAttr "Hologram_Revised_Net1:GRID_place2dtexture.o" "Hologram_Revised_Net1:grid5.uv"
-		;
-connectAttr "Hologram_Revised_Net1:OffsetV.of" "Hologram_Revised_Net1:GRID_place2dtexture.ofv"
-		;
-connectAttr "Hologram_Revised_Net1:OffsetV_inFloat.o" "Hologram_Revised_Net1:OffsetV._f"
-		;
-connectAttr "Hologram_Revised_Net1:remapMask2.ov" "Hologram_Revised_Net1:mask_multiply2.i1x"
-		;
-connectAttr "Hologram_Revised_Net1:rgbToHsv3.ov" "Hologram_Revised_Net1:remapMask2.i"
-		;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "PxrLMMetal1SG.message" ":defaultLightSet.message";
@@ -8764,18 +8723,17 @@ relationship "link" ":lightLinker1" "PxrSurface2SG.message" ":defaultLightSet.me
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "PxrLMMetal1SG.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" "Hologram_Revised_Net1:Holo_Big_SignSG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "PxrSurface_HoloBB_SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "PxrSurface1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "PxrSurface2SG.message" ":defaultLightSet.message";
 connectAttr "PxrLMMetal1SG.pa" ":renderPartition.st" -na;
 connectAttr "PxrSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "PxrSurface2SG.pa" ":renderPartition.st" -na;
-connectAttr "Hologram_Revised_Net1:Holo_Big_SignSG.pa" ":renderPartition.st" -na
-		;
+connectAttr "PxrSurface_HoloBB_SG.pa" ":renderPartition.st" -na;
 connectAttr "PxrLMMetal1.msg" ":defaultShaderList1.s" -na;
 connectAttr "PxrSurface1.msg" ":defaultShaderList1.s" -na;
 connectAttr "PxrSurface2.msg" ":defaultShaderList1.s" -na;
-connectAttr "Hologram_Billboard.msg" ":defaultShaderList1.s" -na;
+connectAttr "BillBoardHologram.msg" ":defaultShaderList1.s" -na;
 connectAttr "Hologram_Revised_Net1:glow_multiply2.msg" ":defaultRenderUtilityList1.u"
 		 -na;
 connectAttr "Hologram_Revised_Net1:Remap_Glow_Gain2.msg" ":defaultRenderUtilityList1.u"
@@ -8788,16 +8746,8 @@ connectAttr "Hologram_Revised_Net1:place2dTexture7.msg" ":defaultRenderUtilityLi
 		 -na;
 connectAttr "Hologram_Revised_Net1:GRID_place2dtexture.msg" ":defaultRenderUtilityList1.u"
 		 -na;
-connectAttr "Hologram_Revised_Net1:mask_multiply2.msg" ":defaultRenderUtilityList1.u"
-		 -na;
-connectAttr "Hologram_Revised_Net1:remapMask2.msg" ":defaultRenderUtilityList1.u"
-		 -na;
 connectAttr "Hologram_Revised_Net1:OffsetV.msg" ":defaultRenderUtilityList1.u" -na
 		;
-connectAttr "Hologram_Revised_Net1:PxrLayerMixer3.msg" ":defaultTextureList1.tx"
-		 -na;
-connectAttr "Hologram_Revised_Net1:Base3.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Hologram_Revised_Net1:Glow2.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Hologram_Revised_Net1:file5.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Hologram_Revised_Net1:grid5.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Hologram_Revised_Net1:file5.oc" ":internal_soloShader.ic";
